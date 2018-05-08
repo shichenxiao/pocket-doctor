@@ -1,0 +1,52 @@
+page-contact {
+    text-align: center;
+    ion-title{
+        text-align: center;
+    }
+    ion-title ion-icon{
+        float:left;
+
+    }
+    img{
+        height:180px;
+        width:100%;
+    }
+    ion-item ion-icon{
+        color:rgb(49,184,196);
+    }
+    ion-list ion-item{
+        width:100%;
+    }
+    ion-list{
+        border-top:1px solid gainsboro;
+        border-bottom:1px solid gainsboro;
+    }
+    .xun{
+        height:30px;
+        line-height:30px;
+    }
+    .question{
+        height:80px;
+        line-height: 80px;
+    }
+    .question ion-icon{
+        color:black;
+    }
+    .question p{
+        font-size:18px;
+        margin-left:30px;
+    }
+    .doc p
+    {
+        color:rgb(49,184,196);
+        font-size:18px;
+    }
+    #btn{
+        width:90%;
+        background-color: rgb(49,184,196);
+        margin:0 auto;
+        height:35px;
+        border-radius: 5px;
+        font-size:15px;
+    }
+}

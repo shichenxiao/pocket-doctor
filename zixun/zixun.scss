@@ -1,0 +1,114 @@
+page-zixun {
+
+    ion-title{
+        text-align: center;
+    }
+    ion-title ion-icon{
+        float:left;
+
+    }
+    p{
+        color:red;
+    }
+    .select{
+        height:40px;
+    }
+    .select p{
+        float: left;
+        color:black;
+        font-size:14px;
+        margin-top:5px;
+        margin-left:12px;
+    }
+    #male{
+        height:25px;
+        width:70px;
+        background-color:rgb(49,184,196);
+        margin-left:10px;
+        font-size:14px;
+        border-radius: 6px;
+    }
+    #female{
+        height:25px;
+        width:70px;
+        background-color:gainsboro;
+        margin-left:10px;
+        font-size:14px;
+        border-radius: 6px;
+    } 
+    .age{
+        height:45px;
+    }
+    .age p{
+        color:black;
+        font-size:14px;
+        margin-top:20px;
+        float:left;
+        margin-left:12px;
+    }
+    .text{
+        height:30px;
+        width:70px;
+        border:1px solid gainsboro;
+        float:left;
+        margin-top:15px;
+        margin-left:10px;
+    }
+    .detail p{
+        color:black;
+        font-size:18px;
+        margin-left:12px;
+    }
+    .textarea{
+        height:200px;
+        width:100%;
+        border:1px solid gainsboro;
+        color:gray;
+    }
+    .type{
+        margin-top:10px;
+        border-top:1px solid gainsboro;
+        border-bottom:1px solid gainsboro;
+    }
+    .type p{
+        color:black;
+        font-size:16px;
+    }
+    .type span{
+        color:red;
+    }
+    .type ion-icon{
+        height:20px;
+        width:20px;
+    }
+    .upload p{
+        color:black;
+    }
+    .imageFileInput{
+		width: 60px;
+    	height: 60px;
+
+    	background-image: url('../assets/imgs/upload.png'); 
+	}
+	.fileInput{
+    	height: 100%;
+       	right: 0;
+    	top: 0;
+    	opacity: 0;
+    }
+    #button{
+        text-align:center;
+    }
+    #btn{
+		background:#31b8c4;
+		width:80%;
+		height:40px;
+		text-align: center;
+		font-size:15px;
+		color:white;
+		margin-top: 20px;
+		border-radius: 10px;
+		border:none;
+		margin:0 auto;
+	}
+}

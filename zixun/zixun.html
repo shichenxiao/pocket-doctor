@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ZixunPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+  <ion-navbar color="mainblue"> 
+    <ion-title>
+     <ion-icon name="ios-arrow-back"></ion-icon>
+      快速提问
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <p>温馨提示：所有问题均由医生利用业余时间进行公益性解答，若未能获得及时回复请耐心等待。</p>
+  <div class="select"><p>患者性别</p><button ion-button id="male">男</button><button ion-button id="female">女</button></div>
+  <div class="age"><p>患者年龄</p><ion-input type="text" class="text"></ion-input></div><br/>
+  <div class="detail">
+    <p>问题描述</p>
+    <ion-input type="textarea" value="请输入您的问题" class="textarea"></ion-input>
+</div>
+<ion-item class="type">
+  <p item-start>选择疾病类型</p>
+  <span>*</span>
+  <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+</ion-item>
+<ion-item class="upload">
+  <p>上传就诊病例/检查报告/症状图片</p>
+  <div class="imageFileInput"><input type="file" class="fileInput"></div>
+</ion-item>
+<div id="button"><button ion-button id="btn">提交咨询</button></div>
+</ion-content>

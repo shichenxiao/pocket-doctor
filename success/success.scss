@@ -1,0 +1,36 @@
+page-success {
+    ion-title{
+        text-align: center;
+    }
+    ion-title ion-icon{
+        float:left;
+
+    }
+    ion-content{
+        text-align: center;
+
+    }
+    img{
+        height:150px;
+        width:150px;
+        margin:0 auto;
+        margin-top:40px;
+    }
+    h2{
+        color:black;
+        font-size:25px;
+        text-align: center;
+    }
+    p{
+        color:gray;
+        font-size:14px;
+    }
+    .button{
+        height:30px;
+        width:50%;
+        margin:0 auto;
+        font-size:14px;
+        background-color: rgb(49,184,196);
+        margin-top:20px;
+    }
+}

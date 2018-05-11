@@ -1,0 +1,67 @@
+page-help {
+    ion-title{
+        text-align: center;
+        color:white;
+    }
+    ion-title ion-icon{
+        float:left;
+        color:white;
+    }
+    .icon-left{
+        float:left;
+        line-height:70px;
+    }
+    .icon-right{
+        float:right;
+        margin-top:-30px;
+    }
+    .select{
+        color:white;
+        width:50%;
+        margin:0 auto;
+    
+    }
+    ion-content{
+        text-align: center;
+    } 
+    ion-segment-button{
+        color:white;
+        text-align: center;
+        line-height:50px;
+    }
+    .left{
+        float:left;
+        color:rgb(49,184,196);
+
+    }
+    .right{
+        float:left;
+        color:rgb(49,184,196);
+        margin-left:15px;
+    }
+    img{
+        height:80px;
+        width:80px;
+    }
+   
+    ion-item ion-icon{
+        color:gray;
+        font-size:14px;
+    
+    }
+    .one{
+        float:left;
+    }
+    .two{
+        float:left;
+        margin-left:20px;
+    }
+    .three{
+        float:left;
+        margin-left:25px;
+    }
+    .four{
+        float:left;
+        margin-left:25px;
+    }
+}

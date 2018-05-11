@@ -1,0 +1,45 @@
+<!--
+  Generated template for the HelpPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+    <ion-navbar color="mainblue"> 
+      <ion-title>
+       <ion-icon name="ios-arrow-back" class="icon-left" (click)="hello()"></ion-icon>
+       <div class="select">
+          <ion-segment [(ngModel)]="pet" color="light">
+              <ion-segment-button value="kittens">
+                最新
+              </ion-segment-button>
+              <ion-segment-button value="puppies">
+                最热
+              </ion-segment-button>
+            </ion-segment>
+       </div>
+       <ion-icon name="ios-create-outline" class="icon-right"></ion-icon>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/imgs/touxiang.png">
+          </ion-avatar>
+           <h2>皮肤帮</h2>
+         <p class="left">话题总数：667</p> <p class="right">参与人数：2667</p>
+        </ion-item>
+
+        <ion-item class="issue">
+          <p>这是什么，要什么药物大家帮帮忙</p>
+          <img src="assets/imgs/issue.jpeg"><br/>
+          <ion-icon name="md-person" class="one">做一个梦</ion-icon>
+          <p class="two">2018-05-10</p>
+          <ion-icon name="md-eye" class="three">25</ion-icon>
+          <ion-icon name="md-chatboxes" class="four">364</ion-icon>
+        </ion-item>
+
+</ion-content>

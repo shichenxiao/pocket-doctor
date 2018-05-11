@@ -1,0 +1,35 @@
+page-hello{
+    h2{
+        color: black;
+        float:left;
+        font-size:16px;
+    }
+    text-align: center;
+    ion-title{
+        text-align: center;
+    }
+    ion-title ion-icon{
+        float:right;
+    }
+    p{
+        float:left;
+        color:gray;
+        font-size:13px;
+    }
+ 
+    ion-content ion-icon{
+        color:rgb(49,184,196);
+        margin-right:40px;
+        font-size:15px;
+    }
+   ion-item{
+       border-bottom:1px solid gainsboro;
+   }
+    .icon-right{
+        float:right;
+    }
+    .icon-left{
+        float:right;
+    }
+    
+}

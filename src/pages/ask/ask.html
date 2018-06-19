@@ -1,0 +1,27 @@
+<!-- 头部 -->
+<ion-header  text-center >
+
+    <ion-navbar text-center  color='mainblue'>
+      <ion-buttons left>
+          <button ion-button icon-only (click)='back()'>
+            <img src="assets/imgs/left.png" alt="">
+          </button>
+      </ion-buttons>
+      <ion-title>咨询</ion-title>
+  
+    </ion-navbar>
+  
+  </ion-header>
+
+<!-- 主体内容 -->
+<ion-content padding>
+          <ion-list *ngFor='let item of arr1;'>
+                   <ion-item>
+                           <p>咨询的问题</p>
+                           <span>{{item.qdirection}}</span>
+                   </ion-item>
+                   <ion-item >
+                     <p class="pp">等待医生回复</p>
+                    </ion-item>
+           </ion-list>
+</ion-content>

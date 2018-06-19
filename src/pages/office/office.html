@@ -1,0 +1,22 @@
+<ion-header>
+
+    <ion-navbar text-center  color='mainblue'>
+  
+      <ion-buttons left>
+          <button ion-button icon-only (click)='back()'>
+            <img src="assets/imgs/left.png" alt="">
+          </button>
+      </ion-buttons>
+      <ion-title>全部科室</ion-title>
+  
+    </ion-navbar>
+  
+  </ion-header>
+  <ion-content>
+    <section class="itemlist">
+      <div class="item" *ngFor='let item of arr1;let idx = index;' (click)='goTo(idx)'>
+       <p>  {{item.officeName}} </p>
+      </div>
+    </section>
+    </ion-content>
+    

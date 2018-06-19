@@ -1,0 +1,58 @@
+
+<ion-content>
+    <ion-slides pager>
+        <ion-slide>
+          <img src="assets/imgs/lunbo1.jpg" alt="">
+        </ion-slide>
+        <ion-slide>
+         <img src="assets/imgs/lunbo2.jpg" alt="">
+       </ion-slide>
+      </ion-slides> 
+<ion-list >
+  <button ion-item (click)="zixun()">
+    <ion-avatar item-left>
+      <img src="assets/imgs/kszx.png">
+    </ion-avatar>
+    <p class="txt1">快速咨询</p>
+    <p class="txt2">咨询医生，对症解答，快速得到答案</p>
+    <div item-content>
+      <img src="assets/imgs/right.png" alt="快速咨询图片" class="kszx">
+    </div>
+  </button>
+</ion-list>
+
+<section  class="list">
+
+  <div class="listitem" *ngFor='let item of arr1;let idx = index;' (click)='goOffice(idx)' >
+      <img src="assets/imgs/off3.png" alt="">
+      <p>{{item.officeName}}</p>
+  </div>
+  <div class="listitem" (click)='goToList()'>
+      <img src="assets/imgs/off1.png" alt="">
+      <p>其他科室</p>
+    </div>
+</section>
+
+<h4><img src='assets/imgs/doctor.png'>热门医生</h4>
+
+<section class="list1">
+  <div *ngFor='let item1 of arr;let idx = index;' class="listitem1" (click)='goDoc(idx)'>
+    <img src="{{item1.Pic}}" alt="">
+    <p> {{item1.Dname}}</p>
+  </div>
+</section>
+
+<section class="btn">
+
+        <button ion-button class="left" (click)="wenzhen()" >
+          <ion-icon name="md-chatbubbles" ></ion-icon>
+          免费问诊
+        </button>
+        <button ion-button color='main' class="right" (click)='goall()'>
+            <ion-icon name="md-calendar"></ion-icon>
+            预约挂号
+        </button>
+
+</section>
+
+</ion-content>

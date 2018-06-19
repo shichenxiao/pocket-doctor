@@ -1,0 +1,56 @@
+<!-- 头部 -->
+<ion-header no-border >
+    <ion-navbar color="mainblue" >
+  
+        <ion-avatar >   
+            <img src="assets/imgs/back.png" alt="图片"  class="back" >
+       </ion-avatar>
+  
+       <ion-title text-center>添加就诊人</ion-title>
+      <ion-buttons end>
+
+      </ion-buttons>
+    </ion-navbar>  
+  </ion-header>
+
+<!-- 主体部分 -->
+<ion-content padding>
+    <ion-list>
+       
+        <ion-item>
+            <ion-label color="primary" fixed>真实姓名</ion-label>
+            <ion-input type="text" placeholder="请输入姓名"></ion-input>
+         </ion-item>
+        <ion-item>
+          <ion-label color="primary" fixed>身份证号</ion-label>
+          <ion-input type="text" placeholder="请输入身份证号"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" fixed>性别</ion-label>
+            <ion-input type="button" value="男"></ion-input>
+            <ion-input type="button" value="女"></ion-input>
+       </ion-item>
+       <ion-item>
+              <ion-label color="primary" fixed>年龄</ion-label>
+              <ion-input type="text" placeholder="请输入年龄"></ion-input>
+       </ion-item>
+       <ion-item>
+            
+                <ion-label color="primary" fixed>手机号码</ion-label>
+                <ion-input type="tel" placeholder="请输入手机号码"></ion-input>
+      </ion-item>
+      <ion-item class="end" no-lines>
+          <ion-label>设为默认就诊人</ion-label>
+          <ion-checkbox ></ion-checkbox>  
+     </ion-item>
+    </ion-list>
+    <button ion-button round  full class="sure">确认</button>
+
+</ion-content>
+
+
+
+
+
+  
+

@@ -1,0 +1,27 @@
+<ion-header  text-center >
+
+  <ion-navbar text-center  color='mainblue'>
+
+    <ion-buttons left>
+        <button ion-button icon-only (click)='back()'>
+          <img src="assets/imgs/left.png" alt="">
+        </button>
+    </ion-buttons>
+    <ion-title>选择医院</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="item">
+    <button ion-item *ngFor='let item of arr;let idx = index;' (click)='go(idx)'>
+      <ion-avatar item-left>
+        <img src="{{item.hospitalImg}}">
+      </ion-avatar>
+      <p class="txt1">{{item.hospitalName}}</p>
+      <p class="txt2">{{item.hospitalDirection}}</p>
+    </button>
+  </ion-list>
+</ion-content>

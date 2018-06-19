@@ -1,0 +1,67 @@
+<ion-header>
+
+    <ion-navbar text-center  color='mainblue'>
+  
+      <ion-buttons left>
+          <button ion-button icon-only (click)='back()'>
+            <img src="assets/imgs/left.png" alt="">
+          </button>
+      </ion-buttons>
+      <ion-title>预约挂号</ion-title>
+  
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content>
+<h4>
+  医生信息
+</h4>
+<section>
+  <div class="item" *ngFor="let item of arr" >
+      <button ion-item>
+          <ion-avatar item-left>
+            <img src="{{item.pic}}">
+          </ion-avatar>
+          <p class="txt1">{{item.docname}}</p>
+          <p class="txt2">{{item.hname}}</p>
+          <p>{{item.officeName}}</p>
+        </button>
+        <ion-list no-lines>
+          <ion-item>出诊医院  <p class="txt3" ion-end>{{item.hname}}</p></ion-item>
+          <ion-item>门诊类型 <p class="txt3" ion-end>门诊</p></ion-item>
+          <ion-item> <ion-label>就诊时间</ion-label> <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>  </ion-item>
+        </ion-list>
+        <ion-list>
+         <p class="txt4"> 温馨提示：</p>
+         <p class="txt4"> 1、建议在每天8:00-21:00之间进行预约</p>
+         <p class="txt4">2、因专家号源稀缺，建议隔周挂号，成功率较高，不建议当天挂号</p>
+         <p class="txt4"> 3、挂号费由医院收取，口袋医生仅提供预约挂号服务，不收取任何费用</p>
+        </ion-list>
+        <!--<ion-list>
+            <ion-item >
+              <ion-label>选择就诊人</ion-label>
+              <ion-select [(ngModel)]="gaming" cancelText="取消" okText="确定" (click)="select()">
+                <ion-option  *ngFor='let item of arr1;' value="{{item.patientID}}">{{item.patientName}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>-->
+          <button ion-buttton class="txt11" (click)="select()">选择</button>
+        <ion-list no-lines *ngFor='let item of arr2;'>
+          
+          <ion-item>姓名：<span class="txt7">{{item.patientName}}</span></ion-item>
+          <ion-item>身份证：<span class="txt9">{{item.IDcard}}</span></ion-item>
+          <ion-item>手机号：<span class="txt10">{{item.patientTel}}</span></ion-item>
+        </ion-list>
+        <ion-item>
+          <ion-label>如遇医生停诊等特殊情况，您的预约可能会被取消，客服人员会及时通知您，请关注预约状态，保持手机通畅</ion-label>
+          <ion-checkbox color="dark" checked="true"></ion-checkbox>
+        </ion-item>
+        <div id="one">
+          <button ion-buttton class="txt6" (click)="goList()">提交预约</button>
+        </div>
+  </div>
+</section>
+
+</ion-content>

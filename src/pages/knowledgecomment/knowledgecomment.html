@@ -1,0 +1,50 @@
+<!--
+  Generated template for the KnowledgecommentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header  text-center >
+
+  <ion-navbar text-center  color='mainblue'>
+    <ion-buttons left>
+        <button ion-button icon-only (click)='back()'>
+          <img src="assets/imgs/left.png" alt="">
+        </button>
+    </ion-buttons>
+    <ion-title>内容</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+    <ion-refresher (ionRefresh)="pullDown($event)">  
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{Refresh}}" refreshingSpinner="circles" refreshingText="{{Refresh}}">  
+        </ion-refresher-content>  
+      </ion-refresher> 
+    <ion-item  *ngFor='let item of arr;'>
+        <h2>{{item.noteName}}</h2>
+        <span class="txt1">口袋医生</span><span class="txt3">{{item.notedate}}</span><span class="txt2">{{item.visitedNumber}}</span><br/>
+        <img src="{{item.knowpic}}">
+        
+      </ion-item>
+      <p  *ngFor='let item of arr;'>{{item.noteArticle}}</p>
+      <ion-item *ngFor='let item of arr1;'>
+          <ion-avatar item-start>
+            <img src="{{item.userPhoto}}">
+          </ion-avatar>
+          <h2>{{item.username}}</h2><br/>
+          <span>2018-6-6</span>
+          <p>{{item.commentContent}}</p>
+      </ion-item>
+</ion-content>
+<ion-footer>
+    <ion-item>
+      <ion-icon name="ios-list-box-outline" item-start></ion-icon>
+      <ion-input type="text" placeholder="请输入评论" [(ngModel)]="txt"></ion-input> 
+      <button ion-button item-end (click)="add()">发送评论</button>
+    </ion-item>
+   
+  </ion-footer>

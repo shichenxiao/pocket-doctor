@@ -1,0 +1,35 @@
+<ion-header  text-center >
+
+  <ion-navbar text-center  color='mainblue'>
+
+    <ion-buttons left>
+        <button ion-button icon-only (click)='back()'>
+          <img src="assets/imgs/left.png" alt="">
+        </button>
+    </ion-buttons>
+    <ion-title>病友帮</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <ion-item >
+        <ion-avatar item-start>
+          <img src="assets/imgs/touxiang.png">
+        </ion-avatar>
+         <h2>{{factionName}}</h2>
+       <p class="left">话题总数：667</p> <p class="right">参与人数：2667</p>
+      </ion-item>
+
+      <ion-item class="issue" *ngFor='let item of arr;let idx = index;' (click)="go(idx)">
+        <p>{{item.cliqueName}}</p>
+        <img src="{{item.cimage}}"><br/>
+        <ion-icon name="md-person" class="one">做一个梦</ion-icon>
+        <p class="two">{{item.cdate}}</p>
+        <ion-icon name="md-eye" class="three">{{item.visited}}</ion-icon>
+        <ion-icon name="md-chatboxes" class="four">364</ion-icon>
+      </ion-item>
+
+</ion-content>

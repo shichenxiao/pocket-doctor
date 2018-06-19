@@ -1,0 +1,19 @@
+page-me {
+	.nav{
+		width: 111%;
+		height: 180px;	
+		background-color: #31b8c4;	
+		font-size: 15px;
+		color: white;
+		text-align:center;
+		margin-top:-16px;
+		margin-left:-16px;
+	}
+	.item-md ion-avatar ion-img, .item-md ion-avatar img {
+		border-radius: 50%;
+		overflow: hidden;
+		width: 29px;
+		height: 29px;
+	}
+ 
+}

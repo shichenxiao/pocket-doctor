@@ -1,0 +1,54 @@
+page-comment {
+    ion-navbar ion-buttons button img{
+        width: 55%;
+    }
+    text-align: center;
+
+    ion-title{
+        text-align: center;
+    }
+
+    ion-title ion-icon{
+        float:left;
+    }
+
+    ion-item{
+        border-bottom:1px solid gainsboro;
+    }
+
+    ion-list{
+        height: 100px;
+    }
+
+    button{
+        height: 100px;
+    }
+
+    span{
+        font-size: 10px;
+    }
+
+    h2{
+        color: black;
+        float:left;
+        font-size:13px;
+    }
+
+    .btn{
+        text-align: center;
+        padding: 0px 10px 0px 10px;
+    }
+    .btn button{
+        width: 45%;
+        font-size: 2rem;
+    }
+    .left{
+        float: left;
+    }
+    .right{
+        float: right;
+    }
+    .button-md{
+        height: 3.2rem;
+    }
+}

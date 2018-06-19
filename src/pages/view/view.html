@@ -1,0 +1,38 @@
+<!-- 头部 -->
+<ion-header  text-center >
+
+  <ion-navbar text-center  color='mainblue'>
+    <ion-buttons left>
+        <button ion-button icon-only (click)='back()'>
+          <img src="assets/imgs/left.png" alt="">
+        </button>
+    </ion-buttons>
+    <ion-title>意见反馈</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+        <ion-list>
+            <ion-item>
+                <ion-select interface="popover" placeholder="问题类型" class="select">
+                  <ion-option>发展建议</ion-option>
+                  <ion-option>投诉举报</ion-option>
+                 
+                </ion-select>
+        
+             </ion-item>
+             <ion-item>
+                <ion-textarea class="textarea" placeholder=" 请详细描述您要反馈的意见">
+                       
+                </ion-textarea>
+              </ion-item>
+        </ion-list>
+        <button ion-button round  full class="submit">提交</button>
+</ion-content>
+
+
+
+

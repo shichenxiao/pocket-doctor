@@ -1,0 +1,54 @@
+<!-- 头部 -->
+<ion-header  text-center >
+
+  <ion-navbar text-center  color='mainblue'>
+    <ion-buttons left>
+        <button ion-button icon-only (click)='back()'>
+          <img src="assets/imgs/left.png" alt="">
+        </button>
+    </ion-buttons>
+    <ion-title>预约详情</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<!-- 主体部分 -->
+<ion-content padding>
+    <ion-list>
+       
+        <ion-item>
+            <ion-label color="primary" fixed>病人姓名:</ion-label>
+            <ion-input type="text" placeholder=""></ion-input>
+         </ion-item>
+        <ion-item>
+          <ion-label color="primary" fixed>身份证号：</ion-label>
+          <ion-input type="text" placeholder=""></ion-input>
+        </ion-item>
+  
+       <ion-item>
+              <ion-label color="primary" fixed>挂号科室：</ion-label>
+              <ion-input type="text" placeholder=""></ion-input>
+       </ion-item>
+       <ion-item>
+            
+                <ion-label color="primary" fixed>医生姓名：</ion-label>
+                <ion-input type="text" placeholder=""></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label color="primary" fixed>预约时间：</ion-label>
+          <ion-input type="text" placeholder=""></ion-input>
+      </ion-item>
+     <ion-item>
+      <ion-label color="primary" fixed>预约号码：</ion-label>
+      <ion-input type="text" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" fixed>预约状态：</ion-label>
+        <ion-input type="text" placeholder=""></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button round  full class="del">取消预约</button>
+
+</ion-content>

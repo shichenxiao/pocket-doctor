@@ -1,0 +1,95 @@
+<ion-header >
+    <ion-navbar color="mainblue"> 
+      <ion-title>
+       知识库
+      </ion-title>
+    </ion-navbar>
+   
+  </ion-header>
+  <ion-content>
+    <ion-segment [(ngModel)]="icons" color="yes" >
+        <ion-segment-button value="1"> 
+         推荐
+        </ion-segment-button>
+        <ion-segment-button value="2"> 
+          视频
+         </ion-segment-button>
+         <ion-segment-button value="3"> 
+         热点
+         </ion-segment-button>
+         <ion-segment-button value="4"> 
+          测试
+         </ion-segment-button>
+      </ion-segment>
+
+      <!-- 切换的内容 -->
+      <div [ngSwitch]="icons"> 
+        <!-- infor必须加引号才是一个字符串，要不加就是变量 -->
+          <ion-list  *ngSwitchCase="'1'" > 
+           <div class="redian">
+            <img src="assets/imgs/redian.png" alt="">
+            <span>今日热点</span>
+           </div>
+         
+           <section>
+              <ion-item *ngFor='let item of arr1;let idx = index;' (click)="content(idx)">
+                <ion-thumbnail item-start>
+                  <img src="{{item.knowpic}}">
+                </ion-thumbnail>
+                <p>{{item.noteName}}</p>
+              </ion-item>
+            </section>
+         </ion-list>
+      
+         <ion-list *ngSwitchCase="'2'"> 
+          <div class="redian">
+            <img src="assets/imgs/redian.png" alt="">
+            <span>今日热点</span>
+           </div>
+     
+           <section>
+              <ion-item *ngFor='let item of arr2;let idx = index;' (click)="content2(idx)">
+                <ion-thumbnail item-start>
+                  <img src="{{item.knowpic}}">
+                </ion-thumbnail>
+                <p>{{item.noteName}}</p>
+              </ion-item>
+            </section>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'3'"> 
+          <div class="redian">
+            <img src="assets/imgs/redian.png" alt="">
+            <span>今日热点</span>
+           </div>
+   
+           <section>
+              <ion-item *ngFor='let item of arr3;let idx = index;' (click)="content3(idx)" >
+                <ion-thumbnail item-start>
+                  <img src="{{item.knowpic}}">
+                </ion-thumbnail>
+                <p>{{item.noteName}}</p>
+              </ion-item>
+            </section>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'4'"> 
+          <div class="redian">
+            <img src="assets/imgs/redian.png" alt="">
+            <span>今日热点</span>
+           </div>
+  
+           <section>
+              <ion-item *ngFor='let item of arr4;let idx = index;' (click)="content4(idx)" >
+                <ion-thumbnail item-start>
+                  <img src="{{item.knowpic}}">
+                </ion-thumbnail>
+                <p>{{item.noteName}}</p>
+              </ion-item>
+            </section>
+        </ion-list>
+
+     </div>
+  
+  </ion-content>
+  

@@ -1,0 +1,49 @@
+<ion-header  text-center >
+
+  <ion-navbar text-center  color='mainblue'>
+    <ion-buttons left>
+        <button ion-button icon-only (click)='back()'>
+          <img src="assets/imgs/left.png" alt="">
+        </button>
+    </ion-buttons>
+    <ion-title>医生详情</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<section>
+  <div *ngFor="let item of arr" class="item">
+    <section class="item1">
+      <img src="{{item.pic}}" alt="">
+      <span class="spe1">{{item.Dname}}</span>
+      <span class="spe2">主任医师</span>
+    </section>
+    <section>
+      <h4>
+        <img src="assets/imgs/doctor.png" alt="">
+      医生介绍</h4>
+      <p>{{item.Ddirection}}</p>
+    </section>
+    <section>
+      <h4>
+        <img src="assets/imgs/special.png" alt="">
+        擅长疾病</h4>
+      <p>{{item.specialty}}</p>
+    </section>
+  </div>
+</section>
+
+<section class="btn">
+
+    <button ion-button class="left" >
+      向TA问诊
+    </button>
+    <button ion-button color='mainGreen' class="right" (click)='goList()'>
+        预约挂号
+    </button>
+
+</section>
+</ion-content>

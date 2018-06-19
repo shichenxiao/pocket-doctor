@@ -1,0 +1,35 @@
+<!-- 头部 -->
+<ion-header  text-center >
+
+    <ion-navbar text-center  color='mainblue'>
+      <ion-buttons left>
+          <button ion-button icon-only (click)='back()'>
+            <img src="assets/imgs/left.png" alt="">
+          </button>
+      </ion-buttons>
+      <ion-title>常用就诊人</ion-title>
+  
+    </ion-navbar>
+  
+  </ion-header>
+<!-- 主体部分 -->
+
+<ion-content padding>
+   <ion-list>
+    <ion-grid >
+        <ion-row>
+            <ion-col class="part"> <p>姓名</p> </ion-col>
+            <ion-col class="part"> <p>性别</p> </ion-col>
+            <ion-col class="part"> <p>年龄</p> </ion-col>
+            <ion-col class="part">  <p>删除</p> </ion-col>  
+        </ion-row>
+        <ion-row *ngFor='let item of arr1;'>
+            <ion-col class="add"> <p>{{item.patientName}}</p> </ion-col>
+            <ion-col class="add"> <p>{{item.patientsex}}</p> </ion-col>
+            <ion-col class="add"> <p>{{item.patientAge}}</p> </ion-col>
+            <ion-col class="add">  <button ion-button class="btn">删除</button></ion-col>  
+        </ion-row>
+    </ion-grid>     
+  </ion-list>  
+</ion-content>
+

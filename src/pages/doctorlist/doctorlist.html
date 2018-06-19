@@ -1,0 +1,37 @@
+
+<ion-header  text-center >
+
+  <ion-navbar text-center  color='mainblue'>
+
+    <ion-buttons left>
+        <button ion-button icon-only (click)='back()'>
+          <img src="assets/imgs/left.png" alt="">
+        </button>
+    </ion-buttons>
+    <ion-title>口袋医生</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+  <ion-item>
+    <span>您要查阅的是：</span>
+    <span class="spe1">{{officeName}}</span>
+    <span>的医生</span>
+    <span>人气</span>
+  
+  
+  </ion-item>
+  <section>
+    <ion-item *ngFor='let item of arr; let idx = index;' (click)="godetail(idx)">
+  
+      <ion-avatar item-left>
+        <img src="{{item.Pic}}">
+      </ion-avatar>
+      <p class="txt1"> {{item.Dname}}</p>
+      <p class="txt2">{{item.Ddirection}}</p>
+    </ion-item>
+  </section>
+  </ion-content>
+  

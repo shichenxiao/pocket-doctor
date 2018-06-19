@@ -1,0 +1,41 @@
+<!-- 顶部 -->
+<ion-header no-border text-center>
+    <ion-navbar color="mainblue" >
+        <ion-avatar >   
+            <img src="assets/imgs/back.png" alt="图片"  class="back">
+         </ion-avatar>
+        <ion-title> 登录</ion-title>
+        <ion-buttons end>
+      
+       </ion-buttons>
+    </ion-navbar>   
+  </ion-header>
+  
+  <!-- 主体 -->
+  <ion-content padding class="content">
+      <div class="title">
+      口袋医生
+      </div>
+  
+      <ion-list >
+  
+        <ion-item>
+            <ion-icon  item-start name="person" class="person"  color="yel"></ion-icon>
+            <ion-input type="text" [(ngModel)]="userid" placeholder="请输入手机号"></ion-input>
+        </ion-item>
+    
+       <ion-item>
+          <ion-icon item-start name="lock"  class="person"  color="yel"></ion-icon>
+          <ion-input type="password" [(ngModel)]="pas" placeholder="请输入密码"></ion-input>
+       </ion-item> 
+      
+     
+     </ion-list>
+     <button ion-button round  full  class="btn" (click)="login()">登录</button>
+    
+   
+    
+  </ion-content>
+  <ion-footer class="footer" (click)="register()">
+             <p>没有用户名?立即注册>></p>
+  </ion-footer>

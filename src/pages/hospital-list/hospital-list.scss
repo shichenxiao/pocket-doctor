@@ -1,0 +1,30 @@
+page-hospital-list {
+    ion-navbar ion-buttons button img{
+        width: 55%;
+    }
+    .itemlist{
+        width: 100%;
+        height: auto;
+    }
+    .itemlist:after{
+        content: "";
+        display: block;
+        clear: both;
+        visibility: hidden;
+    }
+    .item{
+        border-right: 0.1px solid #DDE5EB;
+        border-bottom: 0.1px solid #DDE5EB;
+        width: 25%;
+        float: left;
+    }
+    .item:nth-child(4){
+        border-right: 0px;
+    }
+    .item:nth-child(8){
+        border-right: 0px;
+    }
+    .item p{
+        text-align: center;
+    }
+}

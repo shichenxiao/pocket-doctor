@@ -1,0 +1,55 @@
+page-doctor {
+    ion-navbar ion-buttons button img{
+        width: 55%;
+    }
+    section {
+        border-bottom: 0.1px solid #D9CED9;
+        border-top: 0.1px solid #D9CED9;
+        margin-bottom: 8px;
+    }
+    h4{
+        margin: 0px;
+        padding: 5px;
+        border-bottom: 0.1px solid #D9CED9;
+    }
+    section img{
+        width: 5%;
+        vertical-align: middle;
+    }
+    h4 img{
+        vertical-align: middle;
+    }
+    .item1 img{
+        width: 22%;
+        border-radius: 50%;
+    }
+    .spe1{
+       
+        margin-left: 2em;
+        font-size: 1.7em;
+    }
+    .spe2{
+  
+        color: #4F4A4F;
+        margin-left: 10px;
+    }
+    .item section:nth-child(1){
+        padding: 16px 16px;
+    }
+    .item section:nth-child(3){
+        border-bottom: 0px;
+    }
+    p{
+        padding: 3px 15px;
+        line-height: 1.9em;
+    }
+    .btn{
+        text-align: center;
+        border: 0px;
+    }
+    .btn button {
+        width: 45%;
+        height: 2.5rem;
+        font-size: 1.6rem;
+    }
+}

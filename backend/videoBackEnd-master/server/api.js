@@ -651,17 +651,17 @@ router.get('/api/repeat',function(req, res){
  //电影编辑提交API
  router.post('/api/knowledgeUpload',function(req,res){
     var movieName = req.body.movieName,
-    PicUrl = req.body.PicSrc,
+   // PicUrl = req.body.PicSrc,
     showTime = req.body.showTime,
     content = req.body.content,
-    movieUrl = req.body.movieUrl,
-    moviePlayTime = req.body.moviePlayTime,
+    //movieUrl = req.body.movieUrl,
+   // moviePlayTime = req.body.moviePlayTime,
     actor = req.body.actor,
     BelongId = req.body.BelongId,
     id = req.body.id,
     uid= req.body.uid,
     resBody = {state:''}
-        connection.query("update knowledge set noteName='"+movieName+"',knowpic='"+PicUrl+"',notedate='"+showTime+"',noteArticle='"+content+",knowledgeType='"+BelongId+"' WHERE knowledgeTypeID ='"+id+"'", function(err,doc){
+        connection.query("insert into knowledge set noteName='"+movieName+"',notedate='"+showTime+"',noteArticle='"+content+",knowledgeType='"+BelongId+"'", function(err,doc){
             if(err){
                 resBody.state='上传失败';
                 res.send(resBody)

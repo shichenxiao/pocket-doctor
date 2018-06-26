@@ -216,7 +216,7 @@ import TitleLink from './TitleLink.vue'
         });
       },
       DeleteMovie(id, index, rows) {
-        this.$confirm('此操作将删除改就诊人, 请慎重!', '提示', {
+        this.$confirm('此操作将预约, 请慎重!', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'

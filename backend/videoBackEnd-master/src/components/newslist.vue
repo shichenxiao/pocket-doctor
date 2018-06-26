@@ -146,7 +146,7 @@ import TitleLink from './TitleLink.vue'
         this.$router.push('/movieedit?id='+id);
       },
       UpMovie(id){
-        this.$router.push('/upknowledge');
+        this.$router.push('/upknowledge?id='+id);
       },
     }
   }

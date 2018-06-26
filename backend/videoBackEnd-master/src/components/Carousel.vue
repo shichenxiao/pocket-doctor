@@ -45,15 +45,7 @@
           </div>
       </template>
     </el-table-column>
-    <el-table-column label="操作">
-      <template scope="scope">
-       
-        <el-button
-          size="small"
-          type="danger"
-          @click="DeleteMovie(scope.row.id, scope.$index, tableData)">删除</el-button>
-      </template>
-    </el-table-column>
+    
   </el-table>
  <div class="block">
     <el-pagination

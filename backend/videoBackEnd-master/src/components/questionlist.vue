@@ -57,14 +57,11 @@
     <el-table-column label="操作">
       <template scope="scope">
        
-        <el-button
+         <el-button
           size="small"
           type="danger"
-          @click="ChangeMovie(scope.row.id, scope.$index, tableData)">回复</el-button>
-          <el-button
-          size="small"
-          type="danger"
-          @click="UpMovie(scope.row.id, scope.$index, tableData)">上传</el-button>
+          @click="DeleteMovie(scope.row.id, scope.$index, tableData)">删除</el-button>
+       
       </template>
     </el-table-column>
   </el-table>
@@ -93,7 +90,7 @@ import TitleLink from './TitleLink.vue'
       }
     },
     created () {
-        this.$store.dispatch('setTitlename', {name:'文章管理'})
+        this.$store.dispatch('setTitlename', {name:'快速咨询管理'})
         this.$http.get('/api/questionlist').then((response)=>{
           let body = response.body;
           var data = [];
@@ -157,7 +154,34 @@ import TitleLink from './TitleLink.vue'
       UpMovie(id){
         this.$router.push('/upknowledge');
       },
+        DeleteMovie(id, index, rows) {
+        this.$confirm('此操作将删除这条问题, 请慎重!', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+            this.$http.post('/api/questionDelete',{
+            id : id
+          }).then((response) => {
+            console.log('删除成功')   
+            },(response)=>{
+              console.log(response)
+            });
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            });
+            rows.splice(index,1);
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+      }
+    
     }
+
   }
 </script>
 <style>

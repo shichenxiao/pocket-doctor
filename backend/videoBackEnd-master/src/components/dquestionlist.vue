@@ -52,7 +52,7 @@
         <el-button
           size="small"
           type="danger"
-          @click="ChangeMovie(scope.row.id, scope.$index, tableData)">回复</el-button>
+          @click="ChangeMovie(scope.row.id, scope.$index, tableData)">删除</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -81,7 +81,7 @@ import TitleLink from './TitleLink.vue'
       }
     },
     created () {
-        this.$store.dispatch('setTitlename', {name:'文章管理'})
+        this.$store.dispatch('setTitlename', {name:'免费咨询管理'})
         this.$http.get('/api/dquestionlist').then((response)=>{
           let body = response.body;
           var data = [];

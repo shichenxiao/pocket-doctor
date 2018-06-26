@@ -40,24 +40,8 @@
 		        </el-menu-item-group>
 							
 		      </el-submenu>
-		      <el-submenu index="5">
-		       <template slot="title">发现版块</template>
-		        <el-menu-item-group>
-		          <router-link :to="{path:'foundTopicList'}"><el-menu-item index="3-1">话题列表</el-menu-item></router-link>
-		          <router-link :to="{path:'foundTopicAdd'}"><el-menu-item index="3-3">话题增加</el-menu-item></router-link>
-				 <router-link :to="{path:'topicCommentlist'}"><el-menu-item index="3-1">话题评论管理</el-menu-item></router-link>
-		        </el-menu-item-group>
-							<el-submenu index="3-3">
-          			<template slot="title">话题分类</template>
-          			 <router-link :to="{path:'topicCategory'}"><el-menu-item index="1-4-1">现有分类</el-menu-item></router-link>
-          			 <router-link :to="{path:'topicCategoryAdd'}"><el-menu-item index="1-4-2">增加分类</el-menu-item></router-link>
-               </el-submenu>
-		      </el-submenu>
-						<div>
-							<router-link :to="{path:'feedback'}"><el-menu-item index="5">用户反馈</el-menu-item></router-link>
-							<router-link :to="{path:'userManage'}" v-if="this.$store.state.user.name=='admin'"><el-menu-item index="6">用户管理</el-menu-item></router-link>
-							<router-link :to="{path:'userinfo'}"><el-menu-item index="7">修改密码</el-menu-item></router-link>
-						</div>
+		      
+						
 		    </el-menu>
 	         </el-col>
 	       </div>

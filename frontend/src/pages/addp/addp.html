@@ -1,56 +1,62 @@
-<!-- 头部 -->
-<ion-header no-border >
-    <ion-navbar color="mainblue" >
-  
-        <ion-avatar >   
-            <img src="assets/imgs/back.png" alt="图片"  class="back" >
-       </ion-avatar>
-  
-       <ion-title text-center>添加就诊人</ion-title>
-      <ion-buttons end>
+<!--
+  Generated template for the InformationPage page.
 
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header  text-center >
+
+    <ion-navbar text-center  color='mainblue'>
+      <ion-buttons left>
+          <button ion-button icon-only (click)='back()'>
+            <img src="assets/imgs/left.png" alt="">
+          </button>
       </ion-buttons>
-    </ion-navbar>  
-  </ion-header>
-
-<!-- 主体部分 -->
-<ion-content padding>
-    <ion-list>
-       
-        <ion-item>
-            <ion-label color="primary" fixed>真实姓名</ion-label>
-            <ion-input type="text" placeholder="请输入姓名"></ion-input>
-         </ion-item>
-        <ion-item>
-          <ion-label color="primary" fixed>身份证号</ion-label>
-          <ion-input type="text" placeholder="请输入身份证号"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label color="primary" fixed>性别</ion-label>
-            <ion-input type="button" value="男"></ion-input>
-            <ion-input type="button" value="女"></ion-input>
-       </ion-item>
-       <ion-item>
-              <ion-label color="primary" fixed>年龄</ion-label>
-              <ion-input type="text" placeholder="请输入年龄"></ion-input>
-       </ion-item>
-       <ion-item>
-            
-                <ion-label color="primary" fixed>手机号码</ion-label>
-                <ion-input type="tel" placeholder="请输入手机号码"></ion-input>
-      </ion-item>
-      <ion-item class="end" no-lines>
-          <ion-label>设为默认就诊人</ion-label>
-          <ion-checkbox ></ion-checkbox>  
-     </ion-item>
-    </ion-list>
-    <button ion-button round  full class="sure">确认</button>
-
-</ion-content>
-
-
-
-
-
+      <ion-title>添加就诊人</ion-title>
   
-
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list >
+    
+      <ion-item>
+           <ion-label>
+              姓名
+            </ion-label>
+          <ion-input type="text" [(ngModel)]="xingming" placeholder=" 请输入姓名" (blur)="aname()" id="phonenumber1"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>性别</ion-label>
+          <ion-select [(ngModel)]="sex" cancelText="Nah" okText="确定">
+            <ion-option value="男" >男</ion-option>
+            <ion-option value="女">女</ion-option>
+          </ion-select>
+        </ion-item>
+     <ion-item>
+        <ion-label>
+           身份证号
+        </ion-label>    
+        <ion-input type="text" [(ngModel)]="id" placeholder="请输入身份证号码" (blur)="aid()" id="phonenumber2"></ion-input>
+     </ion-item> 
+     <ion-item>
+        <ion-label>
+            手机号
+      </ion-label>
+        <ion-input type="text" [(ngModel)]="phone" placeholder="请输入手机号码" (blur)="aphone()" id="phonenumber3"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          年龄
+    </ion-label>
+      <ion-input type="text" [(ngModel)]="age" placeholder="请输入年龄" (blur)="aage()" id="phonenumber4"></ion-input>
+     </ion-item> 
+    
+   
+   </ion-list>
+  
+  
+   <button ion-button round  full class="btn" (click)="add()">添加</button>
+  </ion-content>
+  

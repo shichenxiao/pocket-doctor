@@ -23,7 +23,7 @@ export class AllHospitalPage {
   arr=[];
   ngOnInit() {
  
-          this.http.get('http://localhost:8080/hospital' ).subscribe( data=>{ 
+          this.http.get('http://192.168.23.2:8080/hospital' ).subscribe( data=>{ 
             this.arr=JSON.parse(data['_body']);
             console.log(this.arr);
           } );

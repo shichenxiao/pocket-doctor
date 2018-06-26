@@ -27,7 +27,7 @@ export class SelectPage {
   var user = localStorage.getItem('user');
   console.log(user);
   console.log(this.relationship);
-  this.http.post('http://localhost:8080/getpatient',JSON.stringify({userID:user}), {headers:this.headers}).subscribe(
+  this.http.post('http://192.168.23.2:8080/getpatient',JSON.stringify({userID:user}), {headers:this.headers}).subscribe(
     data=>{
       this.arr1=JSON.parse(data['_body']);
       //this.arr1.length=7;
@@ -46,18 +46,20 @@ export class SelectPage {
   }
 
 add(){
-  let profileModal = this.modalCtrl.create('InformationPage');
+  var doctorID =this.navParams.get('doctorID');
+  let profileModal = this.modalCtrl.create('InformationPage',{doctorID:doctorID});
   profileModal.present(); 
 }
 select(){
   //console.log(this.relationship.patientName);
 //var id=localStorage.setItem('id',this.relationship);
-this.doctorID =this.navParams.get('doctorID');
-  
+var doctorID =this.navParams.get('doctorID');
+  console.log(doctorID);
 
   //this.viewCtrl.dismiss({id:this.relationship});
   console.log(this.relationship);
-  let profileModal = this.modalCtrl.create('ReservationPage',{doctorID:this.doctorID,id:this.relationship});
+
+  let profileModal = this.modalCtrl.create('ReservationPage',{doctorID:doctorID,id:this.relationship});
     profileModal.present(); 
 }
 }

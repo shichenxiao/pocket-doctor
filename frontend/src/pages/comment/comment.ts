@@ -34,7 +34,7 @@ export class CommentPage {
     var cliqueID =this.navParams.get('cliqueID');
     var user = localStorage.getItem('user');
     console.log(cliqueID);
-    this.http.post('http://localhost:8080/cliquecomment',JSON.stringify({cliqueCommentID:cliqueID}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/cliquecomment',JSON.stringify({cliqueCommentID:cliqueID}), {headers:this.headers}).subscribe(
       data=>{
        this.arr=JSON.parse(data['_body']);
        
@@ -44,7 +44,7 @@ export class CommentPage {
       }
     );
     this.cliqueID = this.navParams.get('cliqueID');
-    this.http.post('http://localhost:8080/cliqueuser',JSON.stringify({cliqueCommentID:this.cliqueID,userID:user}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/cliqueuser',JSON.stringify({cliqueCommentID:this.cliqueID,userID:user}), {headers:this.headers}).subscribe(
       data=>{
        this.arr1=JSON.parse(data['_body']);
        
@@ -65,7 +65,6 @@ export class CommentPage {
   }
   back(){
     this.viewCtrl.dismiss();
-   
   }
   txt;
   showPrompt1() {
@@ -93,24 +92,26 @@ export class CommentPage {
   
   add(i){
 
-    if (!this.txt||this.txt==" ") {
+    if (!this.txt || this.txt==" ") {
       this.showPrompt1();
     }else{
-      var cliqueID =this.navParams.get('cliqueID');
-      console.log(cliqueID);
+     this.cliqueID =this.navParams.get('cliqueID');
+      console.log(this.cliqueID);
       var user=localStorage.getItem('user');
-      this.http.post( 'http://localhost:8080/add_comment',JSON.stringify({userid:user,content:this.txt,cid:cliqueID}), {headers:this.headers} ).subscribe( 
+      var date = new Date();
+      date .toLocaleDateString(); //获取当前日期
+      var mytime=date .toLocaleTimeString(); //获取当前时间
+      date .toLocaleString(); //获取日期与时间
+      this.http.post( 'http://192.168.23.2:8080/add_comment',JSON.stringify({userid:user,content:this.txt,cid:this.cliqueID,data: date.toLocaleString()}), {headers:this.headers} ).subscribe( 
           
           (data) => {
-            let profileModal = this.modalCtrl.create('SuccessfulPage');
+            let profileModal = this.modalCtrl.create('SuccessPage',{cliqueID:this.cliqueID});
             profileModal.present(); 
            console.log(data); 
            // this.cd.detectChanges();
            //this.showPrompt2();
-         
-
-           console.log(this.arr1[0].commentArtile);
-           console.log(this.txt);
+          // console.log(this.arr1[0].commentArtile);
+          // console.log(this.txt);
             } 
         )};
     }

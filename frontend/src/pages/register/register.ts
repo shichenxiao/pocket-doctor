@@ -64,7 +64,7 @@ export class RegisterPage {
      }
  
     user(){
-      if(this.userid=='' || this.userid.length!=11){
+      if(this.userid =='' || this.userid.length!=11){
         this.showPrompt1();
     }
     }
@@ -90,7 +90,7 @@ register(){
     }
     console.log(this.userid);
 
-   this.http.post( 'http://localhost:8080/add_user',JSON.stringify({userTel:this.userid,passPWD:this.pas}), {headers:this.headers} ).map(data=>data.json()).subscribe( 
+   this.http.post( 'http://192.168.23.2:8080/add_user',JSON.stringify({userTel:this.userid,passPWD:this.pas}), {headers:this.headers} ).map(data=>data.json()).subscribe( 
        
     (data) => {
   

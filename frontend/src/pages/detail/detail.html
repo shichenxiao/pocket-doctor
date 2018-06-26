@@ -1,32 +1,29 @@
 <!-- 顶部 -->
-<ion-header no-border  text-center>
-    <ion-navbar color="mainblue" >
-      <ion-avatar >   
-        <img src="assets/imgs/back.png" alt="图片"  class="back">
-     </ion-avatar>
-        <ion-title>详情</ion-title>
-        <ion-buttons end>
-          <button ion-button >
-               
+<ion-header>
+
+    <ion-navbar text-center  color='mainblue'>
+  
+      <ion-buttons left>
+          <button ion-button icon-only (click)='back()'>
+            <img src="assets/imgs/left.png" alt="">
           </button>
-       </ion-buttons>
-    </ion-navbar>   
+      </ion-buttons>
+      <ion-title>详情</ion-title>
+  
+    </ion-navbar>
+  
   </ion-header>
   
   <!-- 主体 -->
   <ion-content padding>
    
-        <h4>　1. 名医推荐</h4>
-        <p>　整合全国名院名医，无需苦心甄别，一步直达好医生  </p> 
-        <h4>2.即时咨询</h4>
-        <p>资深医生在线解答疾病问题，告别纷杂的答案，一次获得权威建议</p>
-        <h4>　3. 预约挂号</h4>
-        <p>囊括各科医生专家资源，避开排队加价，一键轻松挂到稀缺号源</p>
-        <h4>4. 专家会诊</h4>
-        <p>联合多科室专家权威会诊，不必东奔西跑，一站确定诊疗方案</p>
-        <h4>　5. 病例解析</h4>
-        <p>汇集专业医生解析典型案例，全面剖析疾病知识，一解多年疾病困惑</p>
-        <h4>　6. 互助交流</h4>
-        <p>百万病友医生共同参与，互动交流分享经验，一路同行共抗病魔 </p>
-        
+      <ion-list *ngFor='let item of arr1;'>
+          <ion-item>就诊人姓名：<span class="txt1">{{item.patientName}}</span></ion-item>
+          <ion-item>就诊人电话：<span class="txt1">{{item.patientTel}}</span></ion-item>
+          <ion-item>就诊人身份证号码：<span class="txt1">{{item.IDcard}}</span></ion-item>
+          <ion-item>就诊医院：<span class="txt1">{{item.hospitalName}}</span></ion-item>
+          <ion-item>就诊医生：<span class="txt1">{{item.Dname}}</span></ion-item>
+          <ion-item>就诊日期：<span class="txt1">{{item.date}}</span></ion-item>
+      </ion-list>
+      <button ion-button round  full class="del" (click)="delete()">取消预约</button>
   </ion-content>

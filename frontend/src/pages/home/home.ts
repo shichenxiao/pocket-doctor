@@ -12,7 +12,7 @@ export class HomePage {
   @ViewChild(Slides) slides: Slides;
   constructor(public modalCtrl:ModalController,public http:Http ,public jsonp:Jsonp,public navCtrl: NavController,public alertCtrl: AlertController){  }
   
-  headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );
+  headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8', 'Accept': '*/*'} );
   
   ngAfterViewInit() {
     this.slides.freeMode = true;
@@ -27,14 +27,14 @@ export class HomePage {
       let profileModal = this.modalCtrl.create('YindaoPage');
       profileModal.present();
     }
-    this.http.post('http://192.168.1.5:8080/office',JSON.stringify({officeID:1}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/office',JSON.stringify({officeID:1}), {headers:this.headers}).subscribe(
       data=>{
         this.arr1=JSON.parse(data['_body']);
         this.arr1.length=7;
         console.log(data);
       }
     );
-    this.http.post('http://192.168.1.5:8080/doctorList',JSON.stringify({doctorID:1}),{headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/doctorList',JSON.stringify({doctorID:1}),{headers:this.headers}).subscribe(
       data=>{
         this.arr=JSON.parse(data['_body']);
         console.log(this.arr);

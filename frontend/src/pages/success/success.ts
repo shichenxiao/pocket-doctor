@@ -17,7 +17,7 @@ export class SuccessPage {
 
   constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams) {
   }
-
+cliqueID;
   ionViewDidLoad() {
     let elements = document.querySelectorAll(".tabbar");
     if (elements != null) {
@@ -27,7 +27,8 @@ export class SuccessPage {
        }   
   }
   wancheng(){
-    this.navCtrl.push('ZixunPage');
+   this.cliqueID =this.navParams.get('cliqueID');
+    this.navCtrl.push('CommentPage',{cliqueID:this.cliqueID});
   }
   back(){
     this.viewCtrl.dismiss();

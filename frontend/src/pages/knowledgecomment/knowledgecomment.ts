@@ -28,7 +28,7 @@ headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );
   ngOnInit(){
     this.knowledgeTypeID = this.navParams.get('knowledgeTypeID');
     console.log(this.knowledgeTypeID);
-    this.http.post('http://localhost:8080/knowledgecontent',JSON.stringify({knowledegTypeID:this.knowledgeTypeID}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/knowledgecontent',JSON.stringify({knowledegTypeID:this.knowledgeTypeID}), {headers:this.headers}).subscribe(
       data=>{
        this.arr=JSON.parse(data['_body']);
        
@@ -38,7 +38,7 @@ headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );
      
     })
 
-    this.http.post('http://localhost:8080/knowledgecomment',JSON.stringify({knowledegTypeID:this.knowledgeTypeID}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/knowledgecomment',JSON.stringify({knowledegTypeID:this.knowledgeTypeID}), {headers:this.headers}).subscribe(
       data=>{
        this.arr1=JSON.parse(data['_body']);
        
@@ -51,11 +51,16 @@ headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );
   add(){
     this.knowledgeTypeID = this.navParams.get('knowledgeTypeID');
     //console.log(cliqueID);
+    console.log(this.knowledgeTypeID);
     var user=localStorage.getItem('user');
-    this.http.post( 'http://localhost:8080/add_knowledgecomment',JSON.stringify({userid:user,content:this.txt,kid:this.knowledgeTypeID}), {headers:this.headers} ).subscribe( 
+    var date = new Date();
+    date .toLocaleDateString(); //获取当前日期
+    var mytime=date .toLocaleTimeString(); //获取当前时间
+    date .toLocaleString(); //获取日期与时间
+    this.http.post( 'http://192.168.23.2:8080/add_knowledgecomment',JSON.stringify({userid:user,content:this.txt,kid:this.knowledgeTypeID,date:date.toLocaleString()}), {headers:this.headers} ).subscribe( 
         
         (data) => {
-          let profileModal = this.modalCtrl.create('SuccessfulPage');
+          let profileModal = this.modalCtrl.create('SuccessfulPage',{knowledgeTypeID:this.knowledgeTypeID});
           profileModal.present(); 
          console.log(data);  
           //console.log()
@@ -63,6 +68,6 @@ headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );
       )};
   
   back(){
-    this.viewCtrl.dismiss();
+    this.navCtrl.pop(); 
   }
 }

@@ -27,9 +27,9 @@ export class ZixunPage {
  type;
  diseasepic;
  arr1=[];
- headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );
+ headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );ip
  ngOnInit(){
-    this.http.get('http://localhost:8080/illnesstype' ).subscribe( data=>{ 
+    this.http.get('http://192.168.23.2:8080/illnesstype' ).subscribe( data=>{ 
             this.arr1=JSON.parse(data['_body']);
             //console.log(this.arr1[0].illnessID);
     });
@@ -37,15 +37,22 @@ export class ZixunPage {
 
   success(){
     console.log(this.type);
+    var myDate = new Date();
+    //myDate.getYear();       //获取当前年份(2位)
+ var year=   myDate.getFullYear();   //获取完整的年份(4位,1970-????)
+  var month=  myDate.getMonth() +1;      //获取当前月份(0-11,0代表1月)
+   var day= myDate.getDate();
+var date =  year+'-'+month+'-'+day;
+date;
     var user = localStorage.getItem('user');
-    this.http.post('http://localhost:8080/add_question',JSON.stringify({userid:user,sex:this.sex,age:this.age,diseasetype:this.type,diseasepic:this.diseasepic,direction:this.direction}), {headers:this.headers}).map(data=>data.json()).subscribe( 
+    this.http.post('http://192.168.23.2:8080/add_question',JSON.stringify({userid:user,sex:this.sex,age:this.age,diseasetype:this.type,diseasepic:this.diseasepic,direction:this.direction,date:date}), {headers:this.headers}).map(data=>data.json()).subscribe( 
        
       (data) => {
         console.log(data);
        // this.arr1=JSON.parse(data['_body']);
       // console.log(this.arr1);
       if(data==1){
-        let profileModal = this.modalCtrl.create('SuccessPage');
+        let profileModal = this.modalCtrl.create('SuccessfullyPage');
         profileModal.present();  
       }
        

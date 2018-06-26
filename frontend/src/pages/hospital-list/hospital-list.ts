@@ -21,7 +21,7 @@ export class HospitalListPage {
   arr1=[];
   ngOnInit(){
 
-    this.http.post('http://localhost:8080/office',JSON.stringify({officeID:1}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/office',JSON.stringify({officeID:1}), {headers:this.headers}).subscribe(
       data=>{
         console.log(data);
         this.arr1=JSON.parse(data['_body']);

@@ -28,13 +28,26 @@ ptel;
 page;
 hospital;
 date;
+id;
+officeName;
   ngOnInit(){
-    this.name=localStorage.getItem('name');
-    this.card=localStorage.getItem('card');
-    this.ptel=localStorage.getItem('ptel');
-    this.page=localStorage.getItem('page');
+    this.officeName = localStorage.getItem('officeName');
     this.hospital = localStorage.getItem('hospitalName');
-    this.date = localStorage.getItem('date');
+    this.id = this.navParams.get('id');
+    this.date = this.navParams.get('date');
+    console.log(this.id);
+    this.http.post('http://192.168.23.2:8080/patient_get',JSON.stringify({patientID:this.id}), {headers:this.headers}).subscribe(
+      data=>{
+        this.arr=JSON.parse(data['_body']);
+        console.log(data);
+        console.log(this.arr);
+       //console.log(data);
+        //console.log(this.arr1[0].hID);
+        //var hid = localStorage.setItem('hid',this.arr[0].hID);
+        
+        //var docname = localStorage.setItem('docname',this.arr[0].docname);
+      }
+    );
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AppointmentPage');

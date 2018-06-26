@@ -23,7 +23,7 @@
 <ion-content padding>
   <ion-list radio-group [(ngModel)]="relationship">
     <ion-item *ngFor='let item of arr1;'>
-      <ion-label>{{item.patientName}}</ion-label>
+      <ion-label>就诊人姓名：{{item.patientName}}</ion-label>
       <ion-radio value="{{item.patientID}}" checked></ion-radio>
     </ion-item>
     </ion-list>

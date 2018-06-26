@@ -21,12 +21,12 @@
  
 <ion-content padding>
   <img src="assets/imgs/sign-check-icon.png">
+  <ion-item *ngFor='let item of arr;'>
   <h2>预约成功！</h2>
-  <p>姓名：{{this.name}}</p>
-  <p>年龄：{{this.page}}</p>
-  <p>电话：{{this.ptel}}</p>
-  <p>身份证号码：{{this.card}}</p>
-  <p>医院：{{this.hospital}}</p>
-  <p>预约日期：{{this.date}}</p>
+  姓名：<span>{{item.patientName}}</span>
+  年龄：<span>{{item.patientAge}}</span>
+  电话：<span>{{item.patientTel}}</span>
+  身份证号码：<span>{{item.IDcard}}</span>
+  </ion-item> <p>医院：{{this.hospital}}</p><p>科室：{{this.officeName}}</p><p>预约日期：{{this.date}}</p>
   <button ion-button class="button" (click)="wancheng()">完成</button>
 </ion-content>

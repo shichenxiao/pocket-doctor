@@ -20,7 +20,7 @@ export class DoctorPage {
   ngOnInit(){
     this.doctorID =this.navParams.get('doctorID');
    
-    this.http.post('http://localhost:8080/doctor',JSON.stringify({doctorID:this.doctorID}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/doctor',JSON.stringify({doctorID:this.doctorID}), {headers:this.headers}).subscribe(
       data=>{
         this.arr=JSON.parse(data['_body']);
        console.log(this.arr);
@@ -33,6 +33,11 @@ export class DoctorPage {
   back(){
     this.viewCtrl.dismiss();
    
+  }
+  question(){
+    var doctorID = localStorage.getItem('DoctorID')
+    let profileModal = this.modalCtrl.create('DquestionPage',{doctorID:doctorID});
+    profileModal.present();  
   }
   goList(){
     var doctorID = localStorage.getItem('DoctorID')

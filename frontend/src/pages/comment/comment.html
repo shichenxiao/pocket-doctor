@@ -24,11 +24,11 @@
 
   <ion-item *ngFor='let item of arr1;let i = index'>
     <ion-avatar item-start>
-      <img src="{{arr1[i].userPhoto}}">
+      <img src="{{item.userPhoto}}">
     </ion-avatar>
-    <h2>{{arr1[i].username}}</h2><br/>
-    <span>2018-6-6</span>
-    <p>{{arr1[i].commentArtile}}</p>
+    <h2>{{item.username}}</h2><br/>
+    <span>{{item.commentdate}}</span>
+    <p>{{item.commentArtile}}</p>
 </ion-item>
 
 </ion-content>

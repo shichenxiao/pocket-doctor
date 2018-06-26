@@ -16,7 +16,7 @@ export class ContactPage {
   headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );
   arr1=[];
   ngOnInit(){
-    this.http.post('http://localhost:8080/question',JSON.stringify({questionID:1}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/question',JSON.stringify({questionID:1}), {headers:this.headers}).subscribe(
       data=>{
         this.arr1=JSON.parse(data['_body']);
         this.arr1.length=5;

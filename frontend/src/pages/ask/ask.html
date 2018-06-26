@@ -15,13 +15,26 @@
 
 <!-- 主体内容 -->
 <ion-content padding>
-          <ion-list *ngFor='let item of arr1;'>
-                   <ion-item>
-                           <p>咨询的问题</p>
-                           <span>{{item.qdirection}}</span>
-                   </ion-item>
-                   <ion-item >
-                     <p class="pp">等待医生回复</p>
-                    </ion-item>
-           </ion-list>
+
+        <ion-item-group>
+          <ion-item-divider color="light">快速问诊</ion-item-divider>
+          <ion-item  *ngFor='let item of arr1;'>
+              <p>咨询的问题</p>
+              <span>{{item.qdirection}}</span><span class="txt1">{{item.time}}</span>
+         </ion-item>
+        <ion-item  *ngFor='let item of arr1;'>
+        <p class="pp">等待医生解决</p>
+       </ion-item>
+        </ion-item-group>
+
+        <ion-item-group>
+            <ion-item-divider color="light">免费问诊</ion-item-divider>
+            <ion-item  *ngFor='let item of arr;'>
+                <p>咨询的问题</p>
+                <span>{{item.Qdirection}}</span><span class="txt1">{{item.Time}}</span>
+           </ion-item>
+          <ion-item  *ngFor='let item of arr;'>
+          <p class="pp">{{item.Repeat}}</p>
+         </ion-item>
+          </ion-item-group>
 </ion-content>

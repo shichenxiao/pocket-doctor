@@ -28,14 +28,14 @@ arr2=[];
 arr3=[];
 arr4=[];
 ngOnInit(){
-  this.http.get('http://localhost:8080/knowledgetype' ).subscribe( data=>{ 
+  this.http.get('http://192.168.23.2:8080/knowledgetype' ).subscribe( data=>{ 
           this.arr=JSON.parse(data['_body']);
           console.log(this.arr);
   });
  // var i =1;
 //console.log(this.icons);
 
-  this.http.post('http://localhost:8080/knowledge',JSON.stringify({knowledegTypeID:1}), {headers:this.headers}).subscribe(
+  this.http.post('http://192.168.23.2:8080/knowledge',JSON.stringify({knowledegTypeID:1}), {headers:this.headers}).subscribe(
     data=>{
      this.arr1=JSON.parse(data['_body']);
      
@@ -44,7 +44,7 @@ ngOnInit(){
       
     }
   )
-  this.http.post('http://localhost:8080/knowledge',JSON.stringify({knowledegTypeID:2}), {headers:this.headers}).subscribe(
+  this.http.post('http://192.168.23.2:8080/knowledge',JSON.stringify({knowledegTypeID:2}), {headers:this.headers}).subscribe(
     data=>{
      this.arr2=JSON.parse(data['_body']);
      
@@ -53,7 +53,7 @@ ngOnInit(){
       
     }
   )
-  this.http.post('http://localhost:8080/knowledge',JSON.stringify({knowledegTypeID:3}), {headers:this.headers}).subscribe(
+  this.http.post('http://192.168.23.2:8080/knowledge',JSON.stringify({knowledegTypeID:3}), {headers:this.headers}).subscribe(
     data=>{
      this.arr3=JSON.parse(data['_body']);
      
@@ -62,7 +62,7 @@ ngOnInit(){
       
     }
   )
-  this.http.post('http://localhost:8080/knowledge',JSON.stringify({knowledegTypeID:4}), {headers:this.headers}).subscribe(
+  this.http.post('http://192.168.23.2:8080/knowledge',JSON.stringify({knowledegTypeID:4}), {headers:this.headers}).subscribe(
     data=>{
      this.arr4=JSON.parse(data['_body']);
      

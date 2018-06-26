@@ -26,7 +26,7 @@ officeName;
     let hospitalID =this.navParams.get('doctorID');
     console.log(hospitalID);
 
-    this.http.post('http://localhost:8080/doctorList',JSON.stringify({doctorID:hospitalID}),{headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/doctorList',JSON.stringify({doctorID:hospitalID}),{headers:this.headers}).subscribe(
       data=>{
         console.log(JSON.parse(data['_body']));
         this.arr=JSON.parse(data['_body']);

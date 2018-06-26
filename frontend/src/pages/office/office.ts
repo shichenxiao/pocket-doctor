@@ -20,7 +20,7 @@ export class OfficePage {
   console.log(hospitalID);
 
 
-  this.http.post('http://localhost:8080/office',JSON.stringify({officeID:hospitalID}), {headers:this.headers}).subscribe(
+  this.http.post('http://192.168.23.2:8080/office',JSON.stringify({officeID:hospitalID}), {headers:this.headers}).subscribe(
     data=>{
       console.log(data);
       this.arr1=JSON.parse(data['_body']);

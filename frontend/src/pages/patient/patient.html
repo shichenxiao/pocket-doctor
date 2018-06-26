@@ -6,11 +6,17 @@
           <button ion-button icon-only (click)='back()'>
             <img src="assets/imgs/left.png" alt="">
           </button>
+         
       </ion-buttons>
       <ion-title>常用就诊人</ion-title>
-  
+      <ion-buttons right>
+        <button ion-button  item-end (click)="add()">
+            <ion-icon name="md-add"></ion-icon>
+          </button>
+       
+    </ion-buttons>
     </ion-navbar>
-  
+   <ion-icon name="add"></ion-icon>
   </ion-header>
 <!-- 主体部分 -->
 
@@ -21,15 +27,25 @@
             <ion-col class="part"> <p>姓名</p> </ion-col>
             <ion-col class="part"> <p>性别</p> </ion-col>
             <ion-col class="part"> <p>年龄</p> </ion-col>
-            <ion-col class="part">  <p>删除</p> </ion-col>  
+            <ion-col class="part">  <p (click)="delete()">选择</p> </ion-col>  
         </ion-row>
-        <ion-row *ngFor='let item of arr1;'>
-            <ion-col class="add"> <p>{{item.patientName}}</p> </ion-col>
-            <ion-col class="add"> <p>{{item.patientsex}}</p> </ion-col>
-            <ion-col class="add"> <p>{{item.patientAge}}</p> </ion-col>
-            <ion-col class="add">  <button ion-button class="btn">删除</button></ion-col>  
-        </ion-row>
+        <ion-list *ngFor='let item of arr1;' radio-group [(ngModel)]="patient">
+            <!--<span class="one"  item-start>{{item.patientName}}</span>
+            <span class="two">{{item.patientsex}}</span>
+            <span class="three">{{item.patientAge}}</span>
+            <button ion-button item-end class="btn" (click)="btn()">修改</button>-->
+        
+            <ion-row>
+                    <ion-col class="one" > <p>{{item.patientName}}</p> </ion-col>
+                    <ion-col class="one"> <p>{{item.patientsex}}</p> </ion-col>
+                    <ion-col class="one"> <p>{{item.patientAge}}</p> </ion-col>
+                    <ion-col class="one"> <ion-radio value="{{item.patientID}}"></ion-radio></ion-col>  
+                </ion-row>
+            
+        </ion-list>
     </ion-grid>     
-  </ion-list>  
+  </ion-list> 
+<!--   <button ion-button (click)="delete()" class="btn">删除</button>  -->
+  <button ion-button (click)="change()" class="btn">修改</button> 
 </ion-content>
 

@@ -2,4 +2,20 @@ page-message {
     ion-navbar ion-buttons button img{
         width: 55%;
     }
+    .header-image {
+        width: 100px;
+        height: 100px;
+      
+        margin-top: 20px;
+     
+        background-size: cover;
+        background-color:gainsboro;
+      }
+      text-align: center;
+      .btn{
+          width:80%;
+          background-color:rgb(49,184,196);
+          height:50px;
+          margin:0 auto;
+      }
 }

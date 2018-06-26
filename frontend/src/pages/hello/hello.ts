@@ -26,7 +26,7 @@ export class HelloPage {
     //let faction =this.navParams.get('factionID');
     //console.log(faction);
     
-    this.http.get('http://localhost:8080/get_faction' ).subscribe( data=>{ 
+    this.http.get('http://192.168.23.2:8080/get_faction' ).subscribe( data=>{ 
             this.arr1=JSON.parse(data['_body']);
             console.log(this.arr1);
           } );

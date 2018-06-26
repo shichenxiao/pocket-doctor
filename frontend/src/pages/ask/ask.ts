@@ -22,10 +22,18 @@ export class AskPage {
     console.log('ionViewDidLoad AskPage');
   }
   arr1=[];
+  arr=[];
   ngOnInit(){
     var user = localStorage.getItem('user');
     console.log(user);
-    this.http.post('http://localhost:8080/getquestion',JSON.stringify({userID:user}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/getdquestion',JSON.stringify({userID:user}), {headers:this.headers}).subscribe(
+      data=>{
+        this.arr=JSON.parse(data['_body']);
+        //this.arr1.length=7;
+        console.log(JSON.parse(data['_body']));
+      }
+    );
+    this.http.post('http://192.168.23.2:8080/getquestion',JSON.stringify({userID:user}), {headers:this.headers}).subscribe(
       data=>{
         this.arr1=JSON.parse(data['_body']);
         //this.arr1.length=7;

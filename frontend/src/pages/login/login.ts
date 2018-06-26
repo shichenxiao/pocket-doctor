@@ -56,7 +56,7 @@ login(){
     //let userID =this.navParams.get('userID');
     //console.log(userID);
 
-   this.http.post('http://localhost:8080/validate_user',JSON.stringify({userTel:this.userid,userPWD:this.pas}), {headers:this.headers} )
+   this.http.post('http://192.168.23.2:8080/validate_user',JSON.stringify({userTel:this.userid,userPWD:this.pas}), {headers:this.headers} )
    .map(data=>data.json()).subscribe( 
        
     (data) => {

@@ -27,6 +27,13 @@
           </ion-label>
         <ion-input type="text" [(ngModel)]="xingming" placeholder=" 请输入姓名" (blur)="aname()" id="phonenumber1"></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-label>性别</ion-label>
+        <ion-select [(ngModel)]="sex" cancelText="Nah" okText="确定">
+          <ion-option value="男" >男</ion-option>
+          <ion-option value="女">女</ion-option>
+        </ion-select>
+      </ion-item>
    <ion-item>
       <ion-label>
          身份证号

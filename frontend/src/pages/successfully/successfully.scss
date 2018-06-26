@@ -1,0 +1,30 @@
+page-successfully {
+    ion-navbar ion-buttons button img{
+        width: 55%;
+    }
+  
+    ion-content{
+        text-align: center;
+
+    }
+    ion-content img{
+        height:150px;
+        width:150px;
+        margin:0 auto;
+        margin-top:40px;
+    }
+    h2{
+        color:black;
+        font-size:25px;
+        text-align: center;
+    }
+   
+    .button{
+        height:30px;
+        width:50%;
+        margin:0 auto;
+        font-size:14px;
+        background-color: rgb(49,184,196);
+        margin-top:20px;
+    }
+}

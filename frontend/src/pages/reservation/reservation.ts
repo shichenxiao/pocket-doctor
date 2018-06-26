@@ -45,7 +45,7 @@ this.page=localStorage.getItem('page');
   
   this.doctorID =this.navParams.get('doctorID');
   
-  this.http.post('http://localhost:8080/reservation_list',JSON.stringify({doctorID:this.doctorID}), {headers:this.headers}).subscribe(
+  this.http.post('http://192.168.23.2:8080/reservation_list',JSON.stringify({doctorID:this.doctorID}), {headers:this.headers}).subscribe(
     data=>{
       this.arr=JSON.parse(data['_body']);
       console.log(this.arr);
@@ -58,7 +58,7 @@ this.page=localStorage.getItem('page');
   );
   this.id=this.navParams.get('id');
   console.log(this.id);
-  this.http.post('http://localhost:8080/patient_get',JSON.stringify({patientID:this.id}), {headers:this.headers}).subscribe(
+  this.http.post('http://192.168.23.2:8080/patient_get',JSON.stringify({patientID:this.id}), {headers:this.headers}).subscribe(
     data=>{
       this.arr2=JSON.parse(data['_body']);
       console.log(data);
@@ -91,17 +91,16 @@ goList(){
   var userid = localStorage.getItem('user');
   var doctorid= localStorage.getItem('DoctorID');
   var hid= localStorage.getItem('hid');
-  var patientid = localStorage.getItem('pid');
-  
+  this.id=this.navParams.get('id');
   console.log(hid);
-  this.http.post('http://localhost:8080/add_reservation',JSON.stringify({Ruserid:userid,Rhospital:hid,Rdoctor:doctorid,Rpatient:2,Ramount:20,date:this.event.month}), {headers:this.headers}).map(data=>data.json()).subscribe( 
+  this.http.post('http://192.168.23.2:8080/add_reservation',JSON.stringify({Ruserid:userid,Rhospital:hid,Rdoctor:doctorid,Rpatient: this.id,Ramount:20,date:this.event.month}), {headers:this.headers}).map(data=>data.json()).subscribe( 
        
     (data) => {
       console.log(data);
      // this.arr1=JSON.parse(data['_body']);
     // console.log(this.arr1);
     if(data==1){
-      let profileModal = this.modalCtrl.create('AppointmentPage');
+      let profileModal = this.modalCtrl.create('AppointmentPage',{id:this.id,date:this.event.month});
       profileModal.present();  
     }
      

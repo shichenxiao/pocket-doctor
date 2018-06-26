@@ -1,11 +1,9 @@
 page-detail {
-    p{
-        text-indent: 2em;
-        font-size:13px;
+    ion-navbar ion-buttons button img{
+        width: 55%;
     }
-    .back{
-        float:left;
-        margin-left: -15px;
-        width:20px;
-    }
+    text-align: center;
+   .txt{
+       color:gainsboro;
+   }
 }

@@ -23,27 +23,27 @@
   <ion-list inset>
     <ion-item>
       <ion-label>修改头像</ion-label>
-      <ion-avatar item-end>
-        <img src="assets/imgs/doc1.png">
+      <ion-avatar item-end *ngFor="let item of arr"  tappable [ngStyle]="{'background-image': 'url('+avatar+')'}" (click)="presentActionSheet()">
+        <img src="{{item.userPhoto}}">
       </ion-avatar>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="username()">
       <ion-label>姓名</ion-label>
-      <ion-input type="text"></ion-input>
+      <h2 item-end *ngFor='let item of arr'>{{item.username}}</h2>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="telephone()">
       <ion-label>电话</ion-label>
-      <ion-input type="text"></ion-input>
+      <h2 item-end *ngFor='let item of arr'>{{item.userTel}}</h2>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="sex()">
       <ion-label>性别</ion-label>
-      <ion-input type="text"></ion-input>
+      <h2 item-end *ngFor='let item of arr'>{{item.userSex}}</h2>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="address()">
       <ion-label>住址</ion-label>
-      <ion-input type="text"></ion-input>
+      <h2 item-end *ngFor='let item of arr'>{{item.userAddress}}</h2>
     </ion-item>
     
   </ion-list>
-  
+ 
 </ion-content>

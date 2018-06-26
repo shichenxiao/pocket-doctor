@@ -35,7 +35,7 @@
     </ion-item>
     <ion-item>
       <p>问题描述</p>
-      <ion-input type="textarea" value="请输入您的问题" class="textarea" [(ngModel)]="direction"></ion-input>
+      <ion-input type="textarea" placeholder="请输入您的问题" class="textarea" [(ngModel)]="direction"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>选择疾病类型</ion-label>
@@ -45,9 +45,6 @@
   </ion-item>
   </ion-list>
   
-<ion-item class="upload">
-  <p>上传就诊病例/检查报告/症状图片</p>
-  <div class="header-image" tappable [ngStyle]="{'background-image': 'url('+avatar+')'}" (click)="presentActionSheet()"></div>
-</ion-item>
+
 <div id="button"><button ion-button id="btn" (click)="success()">提交咨询</button></div>
 </ion-content>

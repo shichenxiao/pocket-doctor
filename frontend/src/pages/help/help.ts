@@ -27,7 +27,7 @@ export class HelpPage {
   ngOnInit(){
     let factionID =this.navParams.get('factionID');
     console.log(factionID);
-    this.http.post('http://localhost:8080/clique',JSON.stringify({cliqueID:factionID}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/clique',JSON.stringify({cliqueID:factionID}), {headers:this.headers}).subscribe(
       data=>{
         this.arr=JSON.parse(data['_body']);
        
@@ -37,7 +37,7 @@ export class HelpPage {
     );
     let cliqueid =this.navParams.get('cliqueID');
     console.log(cliqueid);
-    this.http.post('http://localhost:8080/cliqueuser',JSON.stringify({userID:1}), {headers:this.headers}).subscribe(
+    this.http.post('http://192.168.23.2:8080/cliqueuser',JSON.stringify({userID:1}), {headers:this.headers}).subscribe(
       data=>{
        // this.arr=JSON.parse(data['_body']);
       
@@ -48,8 +48,9 @@ export class HelpPage {
     );
   }
   go(idx){
+    let factionID =this.navParams.get('factionID');
     localStorage.setItem('factionName',this.arr[idx].factionName);
-    let profileModal = this.modalCtrl.create('CommentPage',{cliqueID:this.arr[idx].cliqueID});
+    let profileModal = this.modalCtrl.create('CommentPage',{cliqueID:this.arr[idx].cliqueID,factionID:factionID});
     profileModal.present();  
   }
   back(){

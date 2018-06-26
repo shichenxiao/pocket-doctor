@@ -14,15 +14,19 @@ import { IonicPage, NavController, NavParams ,ViewController} from 'ionic-angula
   templateUrl: 'successful.html',
 })
 export class SuccessfulPage {
-
+knowledgeTypeID;
   constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams) {
   }
   wancheng(){
-    this.navCtrl.push('HelloPage');
-    //this.viewCtrl.dismiss();
+   
+    this.knowledgeTypeID =this.navParams.get('knowledgeTypeID');
+    console.log(this.knowledgeTypeID)
+    this.navCtrl.push('KnowledgecommentPage',{knowledgeTypeID:this.knowledgeTypeID});
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SuccessfulPage');
   }
-
+  back(){
+    this.viewCtrl.dismiss();
+  }
 }

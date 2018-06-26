@@ -18,6 +18,10 @@ export class DoctorPage {
   doctorID='';
   
   ngOnInit(){
+    if(!localStorage.getItem('user')){
+      let profileModal = this.modalCtrl.create('LoginPage');
+      profileModal.present();
+    }
     this.doctorID =this.navParams.get('doctorID');
    
     this.http.post('http://192.168.23.2:8080/doctor',JSON.stringify({doctorID:this.doctorID}), {headers:this.headers}).subscribe(

@@ -38,10 +38,7 @@ ngOnInit(){
   this.card=localStorage.getItem('card');
 this.ptel=localStorage.getItem('ptel');
 this.page=localStorage.getItem('page');
-  if(!localStorage.getItem('user')){
-    let profileModal = this.modalCtrl.create('LoginPage');
-    profileModal.present();
-  }
+  
   
   this.doctorID =this.navParams.get('doctorID');
   

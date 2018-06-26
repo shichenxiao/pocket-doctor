@@ -130,7 +130,7 @@ patient;
     }
   add(){
     this.patient = this.navParams.get('patient');
-    this.http.post('http://192.168.1.5:8080/changepatient',JSON.stringify({name:this.name,age:this.age,sex:this.sex,tel:this.tel,id:this.id,patientID:this.patient}), {headers:this.headers}).map(data=>data.json()).subscribe( 
+    this.http.post('http://192.168.23.2:8080/changepatient',JSON.stringify({name:this.name,age:this.age,sex:this.sex,tel:this.tel,id:this.id,patientID:this.patient}), {headers:this.headers}).map(data=>data.json()).subscribe( 
        
       (data) => {
         console.log(data);

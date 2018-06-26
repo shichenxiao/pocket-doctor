@@ -29,6 +29,10 @@ export class ZixunPage {
  arr1=[];
  headers = new Headers( {'Content-Type':'application/x-www-form-urlencoded'} );ip
  ngOnInit(){
+  if(!localStorage.getItem('user')){
+    let profileModal = this.modalCtrl.create('LoginPage');
+    profileModal.present();
+  }
     this.http.get('http://192.168.23.2:8080/illnesstype' ).subscribe( data=>{ 
             this.arr1=JSON.parse(data['_body']);
             //console.log(this.arr1[0].illnessID);

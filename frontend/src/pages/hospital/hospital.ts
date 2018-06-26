@@ -17,6 +17,10 @@ export class HospitalPage {
   arr=[];
   officeName;
   ngOnInit(){
+    if(!localStorage.getItem('user')){
+    let profileModal = this.modalCtrl.create('LoginPage');
+    profileModal.present();
+  }
     let office =this.navParams.get('officeID');
     console.log(office);
     this.http.post('http://192.168.23.2:8080/doctorList',JSON.stringify({doctorID:office}),{headers:this.headers}).subscribe(

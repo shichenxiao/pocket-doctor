@@ -22,6 +22,10 @@ export class AllHospitalPage {
   }
   arr=[];
   ngOnInit() {
+    if(!localStorage.getItem('user')){
+      let profileModal = this.modalCtrl.create('LoginPage');
+      profileModal.present();
+    }
  
           this.http.get('http://192.168.23.2:8080/hospital' ).subscribe( data=>{ 
             this.arr=JSON.parse(data['_body']);

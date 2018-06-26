@@ -15,8 +15,10 @@ export class SetupPage {
     this.viewCtrl.dismiss();
    
   }
+
   exit(){
     this.navCtrl.push("LoginPage");
+    localStorage.removeItem('user');
   }
   detail(){
     this.navCtrl.push('DetailPage');  

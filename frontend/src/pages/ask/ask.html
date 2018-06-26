@@ -21,20 +21,16 @@
           <ion-item  *ngFor='let item of arr1;'>
               <p>咨询的问题</p>
               <span>{{item.qdirection}}</span><span class="txt1">{{item.time}}</span>
+              <p class="pp">等待医生解决</p>
          </ion-item>
-        <ion-item  *ngFor='let item of arr1;'>
-        <p class="pp">等待医生解决</p>
-       </ion-item>
         </ion-item-group>
 
         <ion-item-group>
-            <ion-item-divider color="light">免费问诊</ion-item-divider>
-            <ion-item  *ngFor='let item of arr;'>
+            <ion-item-divider  color="light">免费问诊</ion-item-divider>
+            <ion-item   *ngFor='let item of arr;'>
                 <p>咨询的问题</p>
                 <span>{{item.Qdirection}}</span><span class="txt1">{{item.Time}}</span>
+                <p class="pp">等待医生解决</p>
            </ion-item>
-          <ion-item  *ngFor='let item of arr;'>
-          <p class="pp">{{item.Repeat}}</p>
-         </ion-item>
           </ion-item-group>
 </ion-content>

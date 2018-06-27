@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { IonicPage, App,NavController, NavParams} from 'ionic-angular';
 // ,ViewChild
 // ,ViewController
 import { AlertController } from 'ionic-angular';
@@ -9,6 +9,7 @@ import { Http,Jsonp,Headers } from "@angular/http";
 
 import { HomePage } from '../../pages/home/home';
 import { ModalController } from 'ionic-angular';
+import { TabsPage } from '../../pages/tabs/tabs';
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -16,7 +17,7 @@ import { ModalController } from 'ionic-angular';
 })
 export class LoginPage {
   // private alertCtrl: AlertController, ,public http:Http,public jsonp:Jsonp
-  constructor(public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,public http:Http,public jsonp:Jsonp) {
+  constructor(public app:App,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private alertCtrl: AlertController ,public http:Http,public jsonp:Jsonp) {
   }
 
   ionViewDidLoad() {
@@ -67,12 +68,14 @@ login(){
       else if(data==1){
         this.showPrompt1();
       }else if(localStorage.getItem("user") == data[0].userID){
-        this.navCtrl.push( HomePage);
+        this.navCtrl.push(TabsPage);
+        this.app.getRootNavs()[0].setRoot(TabsPage);
       }else{
         localStorage.setItem('user',data[0].userID);
-        this.navCtrl.push( HomePage);
+       this.navCtrl.push(TabsPage);
+        this.app.getRootNavs()[0].setRoot(TabsPage);
       }
-      console.log(data[0].userID);
+    
     } 
     );
    

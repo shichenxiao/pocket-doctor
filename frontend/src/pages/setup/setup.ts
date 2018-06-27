@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
-
+import { IonicPage,App, NavController, NavParams,ViewController } from 'ionic-angular';
+import { LoginPage } from '../../pages/login/login';
 
 @IonicPage()
 @Component({
@@ -9,7 +9,7 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
 })
 export class SetupPage {
 
-  constructor(public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public app:App,public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams) {
   }
   back(){
     this.viewCtrl.dismiss();
@@ -17,7 +17,8 @@ export class SetupPage {
   }
 
   exit(){
-    this.navCtrl.push("LoginPage");
+    this.app.getRootNavs()[0].setRoot(LoginPage);
+    this.navCtrl.push(LoginPage);
     localStorage.removeItem('user');
   }
   detail(){

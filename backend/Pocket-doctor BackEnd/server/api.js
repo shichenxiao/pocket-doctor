@@ -623,32 +623,31 @@ router.get('/api/repeat',function(req, res){
     })
 })
 
- //电影上传API
- router.post('/api/movieAdd', function(req,res){
+//知识库编辑提交API
+router.post('/api/knowledgechange',function(req,res){
     var movieName = req.body.movieName,
-    PicUrl = req.body.PicSrc,
+   // PicUrl = req.body.PicSrc,
     showTime = req.body.showTime,
     content = req.body.content,
-    movieUrl = req.body.movieUrl,
-    moviePlayTime = req.body.moviePlayTime,
-    actor = req.body.actor,
+    //movieUrl = req.body.movieUrl,
+    //moviePlayTime = req.body.moviePlayTime,
+   // actor = req.body.actor,
     BelongId = req.body.BelongId,
-    uid = req.body.uid,
+    id = req.body.id,
+    //uid= req.body.uid,
     resBody = {state:''}
-        connection.query("INSERT INTO knowledge set noteName='"+movieName+"',knowpic='"+PicUrl+"',notedate='"+showTime+"',noteArticle='"+content+"',knowledgeType='"+BelongId+"'", function(err,doc){
+        connection.query("update knowledge set noteName='"+movieName+"',notedate='"+showTime+"',noteArticle='"+content+"' WHERE knowledgeTypeID='"+id+"'", function(err,doc){
             if(err){
                 resBody.state='上传失败';
                 res.send(resBody)
-                console.log('err')
             } else{
                 resBody.state='上传成功';
                 res.send(resBody)
-                console.log(doc)
             }
         })
-  })
+ })
 
- //电影编辑提交API
+ //知识库内容编辑提交API
  router.post('/api/knowledgeUpload',function(req,res){
     var movieName = req.body.movieName,
    // PicUrl = req.body.PicSrc,
@@ -660,8 +659,9 @@ router.get('/api/repeat',function(req, res){
     BelongId = req.body.BelongId,
     id = req.body.id,
     uid= req.body.uid,
+
     resBody = {state:''}
-        connection.query("insert into knowledge set noteName='"+movieName+"',notedate='"+showTime+"',noteArticle='"+content+",knowledgeType='"+BelongId+"'", function(err,doc){
+        connection.query("INSERT INTO knowledge set noteName='"+movieName+"',notedate='"+showTime+"',noteArticle='"+content+"',knowledgeType='"+BelongId+"'", function(err,doc){
             if(err){
                 resBody.state='上传失败';
                 res.send(resBody)

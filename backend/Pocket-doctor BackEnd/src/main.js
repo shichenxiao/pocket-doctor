@@ -6,6 +6,9 @@ import store         from './vuex/store'
 
 import 'font-awesome/css/font-awesome.css'
  import 'element-ui/lib/theme-default/index.css'
+ import 'summernote'
+import 'summernote/dist/lang/summernote-zh-CN'
+
 import 'summernote/dist/summernote.css'
 import md5 from 'js-md5';
  import ElementUI 	   from 'element-ui'   //400k

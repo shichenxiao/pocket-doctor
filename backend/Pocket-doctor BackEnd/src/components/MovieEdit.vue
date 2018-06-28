@@ -32,52 +32,14 @@
         </div>
       </template>
     </el-form-item>
-   <div class="editor-area">
         <el-form-item label="文章"></el-form-item>
         <!-- editor -->
-        <textarea id="summernote" v-model="Mdesc"></textareas>
-      </div>
-     <div class="orginPic">
-       <p>原图</p>
-       <img width="200" :src="getImgSrc">
-     </div>
-     <el-form-item label="封面">
-     <el-upload
-      accept ='image/jpg'
-      class="upload"
-      ref="upload"
-      action="http://localhost:8080/api/uploadknowPic"
-      name="know"
-      :on-success="uploadPicSuccess"
-      :on-remove="handleRemove"
-      :file-list="fileList"
-      :auto-upload="false">
-      <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-      <el-button style="margin-left: 10px;" size="small" type="success" @click="PicUpload">上传到服务器</el-button>
-      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb,且一次只能上传一张</div>
-    </el-upload>
+       <el-form-item label="文章内容">
+      <el-input type="textarea"  v-model="Mdesc"></el-input>
     </el-form-item>
+     
+     
 
-   <div class="orginVideo">
-    <p>原视频</p>
-    <video width="200" :src="videoSrc"></video>
-   </div>
-   <el-form-item label="视频上传">
-     <el-upload
-      accept="video/mp4"
-      class="upload"
-      ref="video"
-      action="http://back.dubinbin.cn:8080/api/addVideo"
-      name="video"
-      :on-success="uploadVideoSuccess"
-      :on-remove="handleRemove"
-      :file-list="fileList2"
-      :auto-upload="false">
-      <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-      <el-button style="margin-left: 10px;" size="small" type="success" @click="uploadVideo()">上传到服务器</el-button>
-      <div slot="tip" class="el-upload__tip">只能上传视频(mp4)文件，且不超过500M,且一次只能上传一个,修改将会直接覆盖原视频,此操作不可逆</div>
-     </el-upload>
-    </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="moiveUpload">修改</el-button>
       <el-button>重置</el-button>
@@ -134,11 +96,11 @@ import { mapState } from 'vuex';
           this.Mname = body[0].noteName;
           this.showDate = body[0].notedate;
           this.Mdesc = body[0].noteArticle;
-          this.getImgSrc = body[0].knowpic; //获取的未处理图片原地址
+         //this.getImgSrc = body[0].knowpic; //获取的未处理图片原地址
           //console.log(this.getImgSrc);    
           //this.getVideoSrc = body[0].movieUrl; //获取的未处理视频原地址
           //this.videoSrc = body[0].movieUrl.substring(1);//处理的原封面地址
-          this.picSrc = body[0].knowpic.substring(1);//处理的原视频地址
+          //this.picSrc = body[0].knowpic.substring(1);//处理的原视频地址
           //console.log(this.picSrc);
          // console.log(this.Mdesc);
         console.log(id);
@@ -233,53 +195,32 @@ import { mapState } from 'vuex';
             console.log(response)
         });  
       },
-      movieSubmit(picUrl,movieUrl){
+      //提交知识库内容
+      movieUpload(){
          var id = this.$route.query.id;
-         this.$http.post('/api/knowledgeUpload',{
-            movieName: this.Mname,
-            PicSrc : picUrl,
-            showTime: this.showDate,
-            content: this.Mdesc,
-            id : id,
-            movieUrl: movieUrl,
-            moviePlayTime: this.MshowTime + 'min',
-            BelongId: this.movieCid,
-            uid:this.$store.state.user.id,
-            actor: this.actor
-          }).then((response) => {
-             console.log('成功')
-           },(response)=>{
-              console.log(response)
-          });
-          this.$router.push('/movielist')
-           this.$message({
-             type: 'success',
-             message: '上传成功!'
-          });
+         console.log(this.$route.query.id);
+         this.$http.post('/api/knowledgechange',{
+          movieName: this.Mname,
+          //PicSrc : this.picSrc,
+          showTime: this.showDate,
+          content: this.Mdesc,
+          //movieUrl: this.videoSrc,
+         // moviePlayTime: this.MshowTime + 'min',
+          BelongId: this.movieCid,
+           id:id,
+          //actor: this.actor
+        }).then((response) => {
+           //this.$router.push('/movielist')
+           console.log('成功')
+         },(response)=>{
+            console.log(response)
+        });
+         this.$message({
+           type: 'success',
+           message: '上传成功!'
+        });
       },
-      //提交影片
-      moiveUpload(){
-        if(this.NewimgSrc=='' || this.NewimgSrc==null || this.NewimgSrc=='undefined'){      
-           if(this.NewvideoSrc=='' || this.NewvideoSrc==null || this.NewvideoSrc=='undefined'){
-              this.movieSubmit(this.getImgSrc, this.getVideoSrc);   
-           }
-           else{
-              //用户只上传了视频
-              this.movieSubmit(this.getImgSrc, this.NewvideoSrc);          
-           }
-        }else if(this.NewimgSrc!='' && this.NewimgSrc!=null && this.NewimgSrc!='undefined'){
-          if(this.NewvideoSrc=='' || this.NewvideoSrc==null || this.NewvideoSrc=='undefined' ){
-            //用户只上传了图片 success
-            this.movieSubmit(this.NewimgSrc, this.getVideoSrc);
-          }else{
-             //用户又上传视频又上传了图片
-             this.movieSubmit(this.NewimgSrc, this.NewvideoSrc);         
-          }
-        }
-        else{
-         console.log('不可能会有这种情况了亲')
-        }
-    },
+     
     computed:mapState({
         user(){
           var getUserName = window.localStorage.getItem('userName');

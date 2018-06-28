@@ -51,7 +51,7 @@
         <el-button
           size="small"
           type="danger"
-          @click="ChangeMovie(scope.row.id, scope.$index, tableData)">修改</el-button>
+          @click="ChangeMovie(scope.row.id, scope.$index, tableData)">查看</el-button>
           <el-button
           size="small"
           type="danger"

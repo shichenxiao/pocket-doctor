@@ -51,7 +51,7 @@
         <el-button
           size="small"
           type="danger"
-          @click="ChangeMovie(scope.row.id, scope.$index, tableData)">修改</el-button>
+          @click="ChangeMovie(scope.row.id, scope.$index, tableData)">查看</el-button>
           <el-button
           size="small"
           type="danger"
@@ -146,7 +146,7 @@ import TitleLink from './TitleLink.vue'
         this.$router.push('/movieedit?id='+ id);
       },
       UpMovie(id){
-        this.$router.push('/movieedit?id='+ id);
+        this.$router.push('/upknowledge?id='+id);
       },
     }
   }

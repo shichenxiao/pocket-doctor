@@ -51,7 +51,7 @@
         <el-button
           size="small"
           type="danger"
-          @click="Changecontent(scope.row.id)">修改</el-button>
+          @click="Changecontent(scope.row.id)">查看</el-button>
           <el-button
           size="small"
           type="danger"
@@ -143,10 +143,10 @@ import TitleLink from './TitleLink.vue'
         });
       },
       Changecontent(id) {
-        this.$router.push('/changecontent?id='+ id);
+        this.$router.push('/movieedit?id='+id);
       },
       Upcontent(id){
-        this.$router.push('/upcontent?id='+ id);
+        this.$router.push('/upknowledge?id='+id);
       },
     }
   }

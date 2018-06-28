@@ -37,13 +37,6 @@
        <el-form-item label="文章内容">
       <el-input type="textarea"  v-model="Mdesc"></el-input>
     </el-form-item>
-     
-     
-
-    <el-form-item>
-      <el-button type="primary" @click="moiveUpload">修改</el-button>
-      <el-button>重置</el-button>
-    </el-form-item>
   </el-form>
   </div>
 </template>
@@ -96,141 +89,14 @@ import { mapState } from 'vuex';
           this.Mname = body[0].noteName;
           this.showDate = body[0].notedate;
           this.Mdesc = body[0].noteArticle;
-         //this.getImgSrc = body[0].knowpic; //获取的未处理图片原地址
-          //console.log(this.getImgSrc);    
-          //this.getVideoSrc = body[0].movieUrl; //获取的未处理视频原地址
-          //this.videoSrc = body[0].movieUrl.substring(1);//处理的原封面地址
-          //this.picSrc = body[0].knowpic.substring(1);//处理的原视频地址
-          //console.log(this.picSrc);
-         // console.log(this.Mdesc);
+
         console.log(id);
           this.movieCid = body[0].knowledgeType;
           this.MshowTime = body[0].moviePlayTime;
         })
          
     },
-     mounted(){
-       
-      
-       //$('#summernote').html(Mdesc);
-       $('#summernote').summernote({
-          lang:'zh-CN',
-          height:300,
-          minHeight:null,
-          maxHeight:null,
-          focus:true,
-          //message:Mdesc,
-          toolbar:[
-              ['style',['bold','italic','clear']],
-              ['fontsize',['fontsize']],
-              ['para',['ul','ol','paragraph']],
-              ['insert',['picture','link','video']]
-          ],
- 
-          callbacks:{
-              onImageUpload:function(files){     
-              var Picdata = new FormData();
-              var imgUrl = null;
-              Picdata.append('upload',files[0]);
-              $.ajax({
-                  url: '/api/uploadEditorPic',
-                  type: 'POST',
-                  cache: false,
-                  data: Picdata,
-                  processData: false,
-                  contentType: false
-                }).success(function(res) {
-                    let changeUrl = res.substring(1);
-                $('#summernote').summernote("insertImage", changeUrl);  
-              }).fail(function(res) {
-                console.log('error')
-            });
-            
-    }, 
-}
-})
 
-},
-    methods: {
-      PicUpload() {
-        this.deletePic();
-        this.$refs.upload.submit();
-      },
-      uploadVideoSuccess(res, file) {
-        this.NewvideoSrc = res;
-         console.log(this.NewvideoSrc);
-      },
-      uploadPicSuccess(res, file){
-        this.NewimgSrc = res;
-      },
-      handleRemove(file, fileList) {
-        console.log(file, fileList);
-      },
-      handlePreview(file) {
-        console.log(file);
-      },
-      dateChange(val) {
-        this.showDate = val;
-      },
-      uploadVideo() {
-        this.deleteOldVideo();
-        this.$refs.video.submit();  
-      }, 
-      deleteOldVideo() {
-        this.$http.post('/api/deleteVideo',{
-         videoSrc:this.getVideoSrc
-        }).then((response) => {
-           console.log('成功')
-         },(response)=>{
-            console.log(response)
-        });   
-      },
-      //删除新图片
-      deletePic() {
-        this.$http.post('/api/deletePic',{
-         imgSrc: this.getImgSrc
-        }).then((response) => {
-           console.log('成功')
-         },(response)=>{
-            console.log(response)
-        });  
-      },
-      //提交知识库内容
-      movieUpload(){
-         var id = this.$route.query.id;
-         console.log(this.$route.query.id);
-         this.$http.post('/api/knowledgechange',{
-          movieName: this.Mname,
-          //PicSrc : this.picSrc,
-          showTime: this.showDate,
-          content: this.Mdesc,
-          //movieUrl: this.videoSrc,
-         // moviePlayTime: this.MshowTime + 'min',
-          BelongId: this.movieCid,
-           id:id,
-          //actor: this.actor
-        }).then((response) => {
-           //this.$router.push('/movielist')
-           console.log('成功')
-         },(response)=>{
-            console.log(response)
-        });
-         this.$message({
-           type: 'success',
-           message: '上传成功!'
-        });
-      },
-     
-    computed:mapState({
-        user(){
-          var getUserName = window.localStorage.getItem('userName');
-          if(this.$store.state.user.name ==''){
-              this.$store.commit('GET_USER', {name: getUserName})
-          }
-            return this.$store.state.user;
-          }
-      })
-  }
 }
 </script>
 

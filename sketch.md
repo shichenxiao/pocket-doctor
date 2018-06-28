@@ -1,6 +1,6 @@
 # 口袋医生  
 * [github](https://github.com/shichenxiao/pocket-doctor) 
-* [HostRedmine](http://www.hostedredmine.com/projects/h5556565565555)   
+* [HostRedmine](http://10.7.1.5/projects/pocket/wiki)   
 ## 项目简介  
   
 **口袋医生**一款包含在线问诊、线上预约挂号功能的APP。  

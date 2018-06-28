@@ -13,6 +13,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HelloPage } from'../pages/hello/hello';
 import {MePage} from '../pages/me/me';
+import {LoginPage} from '../pages/login/login';
 
 
 import { FormsModule} from '@angular/forms';
@@ -44,7 +45,7 @@ import { File } from '@ionic-native/file';
     TabsPage,
     HelloPage,
     MePage,
-
+   LoginPage
   ],
   imports: [
     BrowserModule, HttpModule,
@@ -67,7 +68,7 @@ import { File } from '@ionic-native/file';
     TabsPage,
     HelloPage,
     MePage,
-
+    LoginPage
   ],
   providers: [
     Camera,
